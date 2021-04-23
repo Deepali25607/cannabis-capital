@@ -10,8 +10,8 @@ import ccnetworking from './images/cc-networking.png';
 import ccverification from './images/cc-verification.png';
 import ccinteractive from './images/cc-interactive.png';
 import ccmarketing from './images/cc-marketing.png';
- class CannabiscapitalNetwork extends Component {
-    render() {
+ function CannabiscapitalNetwork (){
+    
         return (
             <div>
                 <CannabiscapitalHeader />
@@ -149,5 +149,5 @@ import ccmarketing from './images/cc-marketing.png';
             </div>
         )
     }
-}
+
 export default  CannabiscapitalNetwork;

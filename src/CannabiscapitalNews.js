@@ -6,8 +6,32 @@ import post2 from './images/post2.png';
 import post3 from './images/post3.jpg';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
- class CannabiscapitalNews extends React.Component {
-    render() {
+import axios from "axios";
+ function CannabiscapitalNews(){
+    
+    // constructor(props) {
+    //     super(props)
+
+    //     this.state = {
+    //          posts: []
+    //     }
+    // }
+
+
+    // componentDidMount(){
+
+    //     axios.get('https://dev.cannabiscapitol.com/api/get_news_detail/:well-done')
+
+    //     .then(response => {
+    //         console.log(response)
+    //         this.setState({posts: response.data})
+    //     })
+    //     .catch(error => {
+    //         console.log(error.data)
+    //     }
+    //     )
+    // }
+    
         return (
             <div>
                 <CannabiscapitalHeader />
@@ -417,5 +441,5 @@ import CannabiscapitalFooter from './CannabiscapitalFooter';
             </div>
         )
     }
-}
+
 export default CannabiscapitalNews

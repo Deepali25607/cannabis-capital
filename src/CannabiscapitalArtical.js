@@ -6,8 +6,8 @@ import logobannerSection from './images/logo-bannerSection.png';
 import thumbnail from './images/thumbnail.png';
 import sponsor1 from './images/sponsor1.jpg';
 import sponsor2 from './images/sponsor2.jpg';
-class CannabiscapitalArtical extends React.Component {
-    render() {
+function CannabiscapitalArtical () {
+    
         return (
             <div>
                 <CannabiscapitalHeader />
@@ -105,6 +105,6 @@ draws ever closer. Earlier this year, Constellation Brands, the parent company o
             </div>
         )
     }
-}
+
 
 export default CannabiscapitalArtical

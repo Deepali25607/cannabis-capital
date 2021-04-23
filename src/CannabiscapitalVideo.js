@@ -6,8 +6,8 @@ import videopage from './images/video-page.jpg';
 import post2 from './images/post2.png';
 import sponsor2 from './images/sponsor2.jpg';
 
-class CannabiscapitalVideo extends React.Component {
-    render() {
+function CannabiscapitalVideo(){
+    
         return (
             <div>
                 <CannabiscapitalHeader />
@@ -145,6 +145,6 @@ class CannabiscapitalVideo extends React.Component {
             </div>
         )
     }
-}
+
 
 export default CannabiscapitalVideo

@@ -40,8 +40,8 @@ import validation2 from './images/validation2.jpg';
 import validation3 from './images/validation3.jpg';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
-class Cannabiscapitalcompound extends Component {
-    render() {
+function Cannabiscapitalcompound () {
+    
         return (
             <div>
                 <CannabiscapitalHeader />
@@ -281,5 +281,5 @@ class Cannabiscapitalcompound extends Component {
             </div>
         )
     }
-}
+
 export default Cannabiscapitalcompound;

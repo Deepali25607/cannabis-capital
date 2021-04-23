@@ -7,8 +7,8 @@ import post1 from './images/post1.jpg';
 import post3 from './images/post3.jpg';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
- class Cannabiscapitalintertainment extends Component {
-    render() {
+ function Cannabiscapitalintertainment (){
+    
         return (
             <div>
                 <CannabiscapitalHeader />
@@ -437,5 +437,5 @@ import CannabiscapitalFooter from './CannabiscapitalFooter';
             </div>
         )
     }
-}
+
 export default Cannabiscapitalintertainment;

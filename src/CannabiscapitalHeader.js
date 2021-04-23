@@ -4,14 +4,14 @@ import 'reactjs-popup/dist/index.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Signup from './Signup';
 import Login from './Login';
-class CannabiscapitalHeader extends React.Component {
-    render() {
+function CannabiscapitalHeader (){
+    
         return (
             <div>
                 <header className="main_nav">
                     <div className="container">
                         <nav className="navbar navbar-expand-lg navbar-light">
-                            <a className="navbar-brand" href="index.html"><img src={logo} alt="logo" /></a>
+                            <a className="navbar-brand" href="home"><img src={logo} alt="logo" /></a>
                             <button className="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                                 aria-label="Toggle navigation">
@@ -21,16 +21,16 @@ class CannabiscapitalHeader extends React.Component {
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <a className="nav-link" href="intertainment.html">Intertainment <span className="sr-only">(current)</span></a>
+                                        <a className="nav-link" href="Cannabiscapitalintertainment">Intertainment <span className="sr-only">(current)</span></a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="news.html">News</a>
+                                        <a className="nav-link" href="CannabiscapitalNews">News</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="network.html">Network</a>
+                                        <a className="nav-link" href="CannabiscapitalNetwork">Network</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="compound.html">Creative Compound</a>
+                                        <a className="nav-link" href="Cannabiscapitalcompound">Creative Compound</a>
                                     </li>
                                     <li className="nav-item">
                                         <a className="nav-link" href="" data-toggle="modal" data-target="#loginForm">Login</a>
@@ -59,7 +59,7 @@ class CannabiscapitalHeader extends React.Component {
             </div>
         )
     }
-}
+
 
 export default CannabiscapitalHeader;
 
