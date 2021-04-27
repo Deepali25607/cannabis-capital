@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import banner from './images/banner.png';
+import banner from './images/intertainment.png';
 import live from './images/live-post.png';
 import post2 from './images/post2.png';
 import post1 from './images/post1.jpg';

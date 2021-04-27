@@ -1,24 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
-  console.log(postsPerPage)
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(totalPosts/postsPerPage); i++) {
-    pageNumbers.push(i);
-  }
-
+// import { Link } from 'react-router-dom';
+function Pagination() {
   return (
     <div id="pagination-container" className="light-theme simple-pagination">
       <ul>
-        {pageNumbers.map(number => (
-          <li className={number===currentPage ? "active" : ""} key={number}>
-               {number===currentPage ? ( <span className={number===currentPage ? "current" : ""}>{number}</span>):
-          (<Link className={number!==currentPage ? "page-link" : ""} onClick={()=>paginate(number)}>{number}</Link>)}   
-          </li>
-        ))}
-      </ul></div>
-    
-  );
-};
+        <li  className="active">
+          <span  className="current prev">«</span>
+        </li>
+        <li  className="active">
+          <span  className="current">1</span>
+        </li>
+        <li>
+          <a href="#page-2"  className="page-link">2</a>
+        </li>
+        <li>
+          <a href="#page-2"  className="page-link next">»</a>
+        </li>
+      </ul>
+    </div>
+  )
+}
 
-export default Pagination; 
+export default Pagination;

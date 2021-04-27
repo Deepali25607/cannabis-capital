@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import news from './images/news-banner.jpg';
 import post1 from './images/post1.jpg';
@@ -8,30 +8,21 @@ import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
 import axios from "axios";
  function CannabiscapitalNews(){
+    const [books, setBooks] =  useState(" ");
+        axios.get('https://dev.cannabiscapitol.com/api/get_news_detail/:well-done')
+
+        .then(response => {
+            console.log("Hello",response)
+            setBooks({posts: response.data})
+        })
+        .catch(error => {
+            console.log("Welcome",error)
+        }
+        )
     
-    // constructor(props) {
-    //     super(props)
+        
 
-    //     this.state = {
-    //          posts: []
-    //     }
-    // }
-
-
-    // componentDidMount(){
-
-    //     axios.get('https://dev.cannabiscapitol.com/api/get_news_detail/:well-done')
-
-    //     .then(response => {
-    //         console.log(response)
-    //         this.setState({posts: response.data})
-    //     })
-    //     .catch(error => {
-    //         console.log(error.data)
-    //     }
-    //     )
-    // }
-    
+       
         return (
             <div>
                 <CannabiscapitalHeader />

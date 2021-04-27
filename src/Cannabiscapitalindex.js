@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import Pagination from './Pagination';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import banner from './images/banner.png';
@@ -15,9 +15,9 @@ import playCircleOutline from '@iconify-icons/mdi/play-circle-outline';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
 import ReactPlayer from 'react-player';
-
+import InstagramEmbed from 'react-instagram-embed';
 function Cannabiscapitalindex() {
-   
+
     return (
         <div>
 
@@ -39,17 +39,23 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item firstNews">
                                             <div className="newscard--wrap ">
                                                 <div className="newscard--videoPlay">
-                                                    <ReactPlayer 
-                                                    
-                                                    url='https://www.youtube.com/watch?v=MDkzelNAfuM' className="newscard--postThum" 
-                                                    onReady={() => console.log('onReady callback')}
-                                                    onStart={() => console.log('onStart callback')} 
-                                                    onPause={() => console.log('onPause callback')}
-                                                    onEnded={() => console.log('onEmded callback')}
-                                                    onError={() => console.log('onError callback')}
-                                                    />
+                                                    {/* <ReactPlayer
+
+                                                        url='https://www.youtube.com/watch?v=MDkzelNAfuM' className="newscard--postThum"
+                                                        onReady={() => console.log('onReady callback')}
+                                                        onStart={() => console.log('onStart callback')}
+                                                        onPause={() => console.log('onPause callback')}
+                                                        onEnded={() => console.log('onEmded callback')}
+                                                        onError={() => console.log('onError callback')}
+                                                    /> */}
+                                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="100%" height="450px" frameBorder="0"
+                                                    allowFullScreen="true" title="video"></iframe>
                                                     {/* <img src={post1} className="newscard--postThum" alt="" /> */}
                                                     {/* <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
+
+
+                                                    {/* <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                                                    </iframe> */}
                                                 </div>
                                                 <div className="newscard--postCont">
                                                     <h4 className="newscard--postCategory">PUFF PIECE</h4>
@@ -71,18 +77,20 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                <ReactPlayer 
-                                                    width="300px"
-                                                    height='180px'
-                                                    controls
-                                                    url='https://www.youtube.com/watch?v=LjCzPp-MK48' className="newscard--postThum"  
-                                                    onReady={() => console.log('onReady callback')}
-                                                    onStart={() => console.log('onStart callback')} 
-                                                    onPause={() => console.log('onPause callback')}
-                                                    onEnded={() => console.log('onEmded callback')}
-                                                    onError={() => console.log('onError callback')}
-                                                    />
+                                                    {/* <ReactPlayer
+                                                        width="300px"
+                                                        height='180px'
+                                                        controls
+                                                        url='https://www.youtube.com/watch?v=LjCzPp-MK48' className="newscard--postThum"
+                                                        onReady={() => console.log('onReady callback')}
+                                                        onStart={() => console.log('onStart callback')}
+                                                        onPause={() => console.log('onPause callback')}
+                                                        onEnded={() => console.log('onEmded callback')}
+                                                        onError={() => console.log('onError callback')}
+                                                    /> */}
                                                     {/* <img src={post2} className="newscard--postThum" alt="post2" /> */}
+                                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
+                                                    allowFullScreen="true" title="video"></iframe>
                                                 </div>
                                                 <div classNameName="newscard--postCont">
                                                     <h4 className="newscard--postCategory">Entertainment</h4>
@@ -104,18 +112,20 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                <ReactPlayer 
-                                                    width="300px"
-                                                    height='180px'
-                                                    controls
-                                                    url='https://www.youtube.com/watch?v=MDkzelNAfuM' className="newscard--postThum"  
-                                                    onReady={() => console.log('onReady callback')}
-                                                    onStart={() => console.log('onStart callback')} 
-                                                    onPause={() => console.log('onPause callback')}
-                                                    onEnded={() => console.log('onEmded callback')}
-                                                    onError={() => console.log('onError callback')}
-                                                    />
+                                                    {/* <ReactPlayer
+                                                        width="300px"
+                                                        height='180px'
+                                                        controls
+                                                        url='https://www.youtube.com/watch?v=MDkzelNAfuM' className="newscard--postThum"
+                                                        onReady={() => console.log('onReady callback')}
+                                                        onStart={() => console.log('onStart callback')}
+                                                        onPause={() => console.log('onPause callback')}
+                                                        onEnded={() => console.log('onEmded callback')}
+                                                        onError={() => console.log('onError callback')}
+                                                    /> */}
                                                     {/* <img src={post1} className="newscard--postThum" alt="post1" /> */}
+                                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
+                                                    allowFullScreen="true" title="video"></iframe>
                                                 </div>
                                                 <div className="newscard--postCont">
                                                     <h4 className="newscard--postCategory">PUFF PIECE</h4>
@@ -138,16 +148,16 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                <ReactPlayer 
-                                                    width="300px"
-                                                    height='180px'
-                                                    controls
-                                                    url='https://www.youtube.com/watch?v=MDkzelNAfuM' className="newscard--postThum"  
-                                                    onReady={() => console.log('onReady callback')}
-                                                    onStart={() => console.log('onStart callback')} 
-                                                    onPause={() => console.log('onPause callback')}
-                                                    onEnded={() => console.log('onEmded callback')}
-                                                    onError={() => console.log('onError callback')}
+                                                    <ReactPlayer
+                                                        width="300px"
+                                                        height='180px'
+                                                        controls
+                                                        url='https://www.youtube.com/watch?v=MDkzelNAfuM' className="newscard--postThum"
+                                                        onReady={() => console.log('onReady callback')}
+                                                        onStart={() => console.log('onStart callback')}
+                                                        onPause={() => console.log('onPause callback')}
+                                                        onEnded={() => console.log('onEmded callback')}
+                                                        onError={() => console.log('onError callback')}
                                                     />
                                                     {/* <img src={post3} className="newscard--postThum" alt="post3" />
                                                     <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
@@ -172,19 +182,21 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                <ReactPlayer 
-                                                    width="300px"
-                                                    height='180px'
-                                                    controls
-                                                    url='https://www.youtube.com/watch?v=ryUxrFUk6MY' className="newscard--postThum"  
-                                                    onReady={() => console.log('onReady callback')}
-                                                    onStart={() => console.log('onStart callback')} 
-                                                    onPause={() => console.log('onPause callback')}
-                                                    onEnded={() => console.log('onEmded callback')}
-                                                    onError={() => console.log('onError callback')}
-                                                    />
+                                                    {/* <ReactPlayer
+                                                        width="300px"
+                                                        height='180px'
+                                                        controls
+                                                        url='https://www.youtube.com/watch?v=ryUxrFUk6MY' className="newscard--postThum"
+                                                        onReady={() => console.log('onReady callback')}
+                                                        onStart={() => console.log('onStart callback')}
+                                                        onPause={() => console.log('onPause callback')}
+                                                        onEnded={() => console.log('onEmded callback')}
+                                                        onError={() => console.log('onError callback')}
+                                                    /> */}
                                                     {/* <img src={post1} className="newscard--postThum" alt="" />
                                                     <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
+                                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
+                                                    allowFullScreen="true" title="video"></iframe>
                                                 </div>
                                                 <div className="newscard--postCont">
                                                     <h4 className="newscard--postCategory">PUFF PIECE</h4>
@@ -206,19 +218,21 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                <ReactPlayer 
-                                                    width="300px"
-                                                    height='180px'
-                                                    controls
-                                                    url='https://www.youtube.com/watch?v=MDkzelNAfuM' className="newscard--postThum"  
-                                                    onReady={() => console.log('onReady callback')}
-                                                    onStart={() => console.log('onStart callback')} 
-                                                    onPause={() => console.log('onPause callback')}
-                                                    onEnded={() => console.log('onEmded callback')}
-                                                    onError={() => console.log('onError callback')}
-                                                    />
+                                                    {/* <ReactPlayer
+                                                        width="300px"
+                                                        height='180px'
+                                                        controls
+                                                        url='https://www.youtube.com/watch?v=MDkzelNAfuM' className="newscard--postThum"
+                                                        onReady={() => console.log('onReady callback')}
+                                                        onStart={() => console.log('onStart callback')}
+                                                        onPause={() => console.log('onPause callback')}
+                                                        onEnded={() => console.log('onEmded callback')}
+                                                        onError={() => console.log('onError callback')}
+                                                    /> */}
                                                     {/* <img src={post1} className="newscard--postThum" alt="post1" /> */}
                                                     {/* <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
+                                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
+                                                    allowFullScreen="true" title="video"></iframe>
                                                 </div>
                                                 <div className="newscard--postCont">
                                                     <h4 className="newscard--postCategory">PUFF PIECE</h4>
@@ -240,19 +254,21 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                <ReactPlayer 
-                                                    width="300px"
-                                                    height='180px'
-                                                    controls
-                                                    url='https://www.youtube.com/watch?v=LjCzPp-MK48' className="newscard--postThum"  
-                                                    onReady={() => console.log('onReady callback')}
-                                                    onStart={() => console.log('onStart callback')} 
-                                                    onPause={() => console.log('onPause callback')}
-                                                    onEnded={() => console.log('onEmded callback')}
-                                                    onError={() => console.log('onError callback')}
-                                                    />
+                                                    {/* <ReactPlayer
+                                                        width="300px"
+                                                        height='180px'
+                                                        controls
+                                                        url='https://www.youtube.com/watch?v=LjCzPp-MK48' className="newscard--postThum"
+                                                        onReady={() => console.log('onReady callback')}
+                                                        onStart={() => console.log('onStart callback')}
+                                                        onPause={() => console.log('onPause callback')}
+                                                        onEnded={() => console.log('onEmded callback')}
+                                                        onError={() => console.log('onError callback')}
+                                                    /> */}
                                                     {/* <img src={post2} className="newscard--postThum" alt="" /> */}
-                                                    
+                                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
+                                                    allowFullScreen="true" title="video"></iframe>
+
                                                 </div>
                                                 <div className="newscard--postCont">
                                                     <h4 className="newscard--postCategory">PUFF PIECE</h4>
@@ -272,10 +288,10 @@ function Cannabiscapitalindex() {
                                         </div>
                                     </div>
                                 </div>
-                                {/* <HomePost postsData={homePosts?.posts?.posts}/>
-                                <Pagination postsPerPage={postPerPage} totalPosts={postsData.data?.total_count} paginate={paginate} currentPage={currentPage}/> */}
+                                <Pagination />
                             </div>
                         </div>
+
                         <div className="col-lg-4">
                             <div className="rightWrap">
                                 <div className="rightWrapinIn">
@@ -298,7 +314,20 @@ function Cannabiscapitalindex() {
                                     <div className="sidebarMain">
                                         <h3 className="sidebarTitle sec_title">Instagram</h3>
                                         <div className="rightadv">
-                                            <img src={instagram} alt="" />
+                                            {/* <img src={instagram} alt="" /> */}
+                                            <InstagramEmbed
+                                                url='https://instagr.am/p/Zw9o4/'
+                                                clientAccessToken='123|456'
+                                                maxWidth={320}
+                                                hideCaption={false}
+                                                containerTagName='div'
+                                                protocol=''
+                                                injectScript
+                                                onLoading={() => { }}
+                                                onSuccess={() => { }}
+                                                onAfterRender={() => { }}
+                                                onFailure={() => { }}
+                                            />
                                         </div>
                                     </div>
 
