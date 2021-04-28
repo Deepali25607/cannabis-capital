@@ -70,7 +70,7 @@ function Cannabiscapitalindex() {
                                                     Latino Hip
                                                 Hop group!</p>
                                                 </div>
-                                                <a href="#!" className="newscard--linkDetails">More Video</a>
+                                                <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
                                             </div>
                                         </div>
 
@@ -105,7 +105,7 @@ function Cannabiscapitalindex() {
                                                     Latino Hip
                                                 Hop group!</p>
                                                 </div>
-                                                <a href="#!" className="newscard--linkDetails">More Video</a>
+                                                <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
                                             </div>
                                         </div>
 
@@ -141,7 +141,7 @@ function Cannabiscapitalindex() {
                                                     Latino Hip
                                                 Hop group!</p>
                                                 </div>
-                                                <a href="#!" className="newscard--linkDetails">More Video</a>
+                                                <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
                                             </div>
                                         </div>
 
@@ -175,7 +175,7 @@ function Cannabiscapitalindex() {
                                                     Latino Hip
                                                 Hop group!</p>
                                                 </div>
-                                                <a href="#!" className="newscard--linkDetails">More Video</a>
+                                                <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
                                             </div>
                                         </div>
 
@@ -211,7 +211,7 @@ function Cannabiscapitalindex() {
                                                     Latino Hip
                                                 Hop group!</p>
                                                 </div>
-                                                <a href="#!" className="newscard--linkDetails">More Video</a>
+                                                <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
                                             </div>
                                         </div>
 
@@ -247,7 +247,7 @@ function Cannabiscapitalindex() {
                                                     Latino Hip
                                                 Hop group!</p>
                                                 </div>
-                                                <a href="#!" className="newscard--linkDetails">More Video</a>
+                                                <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
                                             </div>
                                         </div>
 
@@ -283,7 +283,7 @@ function Cannabiscapitalindex() {
                                                     Latino Hip
                                                 Hop group!</p>
                                                 </div>
-                                                <a href="#!" className="newscard--linkDetails">More Video</a>
+                                                <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
                                             </div>
                                         </div>
                                     </div>

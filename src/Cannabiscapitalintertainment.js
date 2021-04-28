@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import banner from './images/intertainment.png';
 import live from './images/live-post.png';
@@ -7,13 +7,33 @@ import post1 from './images/post1.jpg';
 import post3 from './images/post3.jpg';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
- function Cannabiscapitalintertainment (){
-    
-        return (
-            <div>
-                <CannabiscapitalHeader />
-                
-    <section classNameName="hm_banner">
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+// import { API_URL } from '../../config';
+const API_URL = {
+    baseUrl: "https://dev.cannabiscapitol.com" || "http://dev.cannabiscapitol.com"
+    // baseUrl: "http://3.143.208.162"
+};
+function Cannabiscapitalintertainment() {
+
+
+    const [videoData, setVideoData] = useState([])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        axios.post(`${API_URL.baseUrl}/api/video-play-list?page=1&limit=3`)
+
+        .then(res => setVideoData(res.data))
+
+        .catch(err => console.log(err.message))
+    }, [])
+    console.log(videoData)
+    // const token = "454550845829481|4ELIZbv-veq9he-3IamqOL5OQCs";
+    // const Igtoken=  "IGQVJVLVI4YkJMRVl1ekxUNmFsQ1g3OU1kMmdfRFRsQW9XWk0yeTB6V210MEd1ZAzE4SEFHQUIzQUsxLV9pVnFFS3RYcUJhN2dhUVBON0tGUnRlQnp6Yk41NE9FMWpYbGxkaF9UNV9USkJrVjhQSDBkZAwZDZD"
+    // const accesss="EAAGdaV2ysWkBANK4O714IaXIOhBkSkdZAczpsZBLaVOVWO8X5JCSiuQ8KeGZA9TZCA8ETrS96lw1UNBPltM0QqoKQc4dP9gQi4h0mn3dPs8osrMintYY7RrTb3sTmqZChWPvgozqNfqsjtFmO2VUtW84C8eqhBxdBg7hU6ZCQDyC8Iph4ZC4H497grKXSwuNOIsK4xAhLIANeZC24qY6mUeEyAqrbmA8AfyBqyrz7ekaxgZDZD"
+    return (
+        <div>
+            <CannabiscapitalHeader />
+           <section classNameName="hm_banner">
         <div classNameName="banner_box">
             <img src={banner}  style={{"width":"100%"}}alt="" />
         </div>
@@ -71,371 +91,73 @@ import CannabiscapitalFooter from './CannabiscapitalFooter';
                         </div>
                     </div>
 
-                    <div className="intertainWraper">
-                        <div className="intertainWraperIn">
-                            <div className="row">
-                                <div className="col-lg-12">
-                                    <div className="newslistTop">
-                                        <h2 className="newslistTop--title sec_title">High Jinx</h2>
-                                        <a className="newslistTop--readmore" href="#">See More Videos > </a>
-                                        <p className="newslistTop--content">
-                                            A fun filled, laughter induced show hosted by Adam Ill. Adam Ill entertains
-                                            and interviews a special guest alongside co-host Angella Mazzanti while
-                                            watching hilarious clips.
-                                        </p>
 
-                                    </div>
-                                    <div className="news_listBottom">
-                                        <ul className="newsList">
-                                            <li className="newsListItem">
-                                                <div className="intThumbnail">
-                                                    <img src={post2} alt=""/>
+
+
+                            {videoData.data?.categories?.map((item) =>
+                            (item.post_type === "2" ? (
+                                <div className="intertainWraper" key={item.id}>
+                                    <div className="intertainWraperIn">
+                                        <div className="row">
+
+                                            <div className="col-lg-12">
+                                                <div className="newslistTop" >
+                                                    <h2 className="newslistTop--title sec_title">{item.title}</h2>
+                                                    <Link className="newslistTop--readmore" to={`/morevids/${item.slug}`}>See More Videos &gt;&gt;</Link>
+                                                    <p className="newslistTop--content">
+                                                        <div dangerouslySetInnerHTML={{ __html: item.description }} />
+                                                    </p>
+
                                                 </div>
-                                                <div className="intDetails">
-                                                    <span className="newsTitle">High Jinx</span> <span
-                                                        className="episodeNumber">Episode 1</span>
-                                                    <p className="newsGuest">Featuring Special Guest</p>
+                                                <div className="news_listBottom">
+                                                    <ul className="newsList">
+                                                        {item.videos?.map((val) => (
+                                                            <li className="newsListItem" key={val.id}>
+                                                                <Link to={`/video/${val.slug}`} className="newsListItemLink">
+                                                                    <div className="intThumbnail">
+                                                                        <img src={val.image_path} alt="" />
+                                                                    </div>
+                                                                    <div className="intDetails">
+                                                                        <span className="newsTitle">{val.title.length > 20 ?
+                                                                            (
+                                                                                <><span dangerouslySetInnerHTML={{ __html: val.title.substring(0, 20) + "..." }} /></>
+                                                                            ) :
+                                                                            <> <span dangerouslySetInnerHTML={{ __html: val.title }} /></>
+                                                                        }</span> <span
+                                                                            className="episodeNumber">{item.title.length > 20 ?
+                                                                                (
+                                                                                    <><span dangerouslySetInnerHTML={{ __html: item.title.substring(0, 20) + "..." }} /></>
+                                                                                ) :
+                                                                                <> <span dangerouslySetInnerHTML={{ __html: item.title }} /></>
+                                                                            }</span>
+                                                                        <p className="newsGuest">{val.sub_title.length > 20 ?
+                                                                            (
+                                                                                <><span dangerouslySetInnerHTML={{ __html: val.sub_title.substring(0, 20) + "..." }} /></>
+                                                                            ) :
+                                                                            <> <span dangerouslySetInnerHTML={{ __html: val.sub_title }} /></>
+                                                                        }</p>
+                                                                    </div>
+                                                                </Link>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
                                                 </div>
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post2} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post2} alt=""/>
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post2} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                        </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                </div>) : "")
+                            )}
 
-                    <div className="intertainWraper">
-                        <div className="intertainWraperIn">
-                            <div className="row">
-                                <div className="col-lg-12">
-                                    <div className="newslistTop">
-                                        <h2 className="newslistTop--title sec_title">Stand up comedy</h2>
-                                        <a className="newslistTop--readmore" href="#">See More Videos > </a>
-                                        <p className="newslistTop--content">
-                                            A fun filled, laughter induced show hosted by Adam Ill. Adam Ill entertains
-                                            and interviews a special guest alongside co-host Angella Mazzanti while
-                                            watching hilarious clips.
-                                        </p>
-
-                                    </div>
-                                    <div className="news_listBottom">
-                                        <ul className="newsList">
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post1} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post1} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post1} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post1} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="intertainWraper">
-                        <div className="intertainWraperIn">
-                            <div className="row">
-                                <div className="col-lg-12">
-                                    <div className="newslistTop">
-                                        <h2 className="newslistTop--title sec_title">reggae nights</h2>
-                                        <a className="newslistTop--readmore" href="#">See More Videos > </a>
-                                        <p className="newslistTop--content">
-                                            A fun filled, laughter induced show hosted by Adam Ill. Adam Ill entertains
-                                            and interviews a special guest alongside co-host Angella Mazzanti while
-                                            watching hilarious clips.
-                                        </p>
-
-                                    </div>
-                                    <div className="news_listBottom">
-                                        <ul className="newsList">
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post3} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post3} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post3} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post3} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="intertainWraper">
-                        <div className="intertainWraperIn">
-                            <div className="row">
-                                <div className="col-lg-12">
-                                    <div className="newslistTop">
-                                        <h2 className="newslistTop--title sec_title">High Jinx</h2>
-                                        <a className="newslistTop--readmore" href="#">See More Videos > </a>
-                                        <p className="newslistTop--content">
-                                            A fun filled, laughter induced show hosted by Adam Ill. Adam Ill entertains
-                                            and interviews a special guest alongside co-host Angella Mazzanti while
-                                            watching hilarious clips.
-                                        </p>
-
-                                    </div>
-                                    <div className="news_listBottom">
-                                        <ul className="newsList">
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post1} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post1} alt=""/>
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post1} alt=""/>
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post1} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="intertainWraper">
-                        <div className="intertainWraperIn">
-                            <div className="row">
-                                <div className="col-lg-12">
-                                    <div className="newslistTop">
-                                        <h2 className="newslistTop--title sec_title">High Jinx</h2>
-                                        <a className="newslistTop--readmore" href="#">See More Videos > </a>
-                                        <p className="newslistTop--content">
-                                            A fun filled, laughter induced show hosted by Adam Ill. Adam Ill entertains
-                                            and interviews a special guest alongside co-host Angella Mazzanti while
-                                            watching hilarious clips.
-                                        </p>
-
-                                    </div>
-                                    <div className="news_listBottom">
-                                        <ul className="newsList">
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post2} alt=""/>
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post2} alt=""/>
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post2} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post2} alt=""/>
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Episode 1</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+
+            <CannabiscapitalFooter />
         </div>
-    </section>
-
-
-
-
-
-
-                <CannabiscapitalFooter />
-            </div>
-        )
-    }
+    )
+}
 
 export default Cannabiscapitalintertainment;
+
