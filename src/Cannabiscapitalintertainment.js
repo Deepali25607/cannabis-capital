@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import banner from './images/intertainment.png';
 import live from './images/live-post.png';
-import post2 from './images/post2.png';
-import post1 from './images/post1.jpg';
-import post3 from './images/post3.jpg';
+// import post2 from './images/post2.png';
+// import post1 from './images/post1.jpg';
+// import post3 from './images/post3.jpg';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
 import axios from 'axios';
@@ -20,6 +20,7 @@ function Cannabiscapitalintertainment() {
     const [videoData, setVideoData] = useState([])
     useEffect(() => {
         window.scrollTo(0, 0)
+        
         axios.post(`${API_URL.baseUrl}/api/video-play-list?page=1&limit=3`)
 
         .then(res => setVideoData(res.data))
@@ -32,6 +33,7 @@ function Cannabiscapitalintertainment() {
     // const accesss="EAAGdaV2ysWkBANK4O714IaXIOhBkSkdZAczpsZBLaVOVWO8X5JCSiuQ8KeGZA9TZCA8ETrS96lw1UNBPltM0QqoKQc4dP9gQi4h0mn3dPs8osrMintYY7RrTb3sTmqZChWPvgozqNfqsjtFmO2VUtW84C8eqhBxdBg7hU6ZCQDyC8Iph4ZC4H497grKXSwuNOIsK4xAhLIANeZC24qY6mUeEyAqrbmA8AfyBqyrz7ekaxgZDZD"
     return (
         <div>
+            <scrollTo />
             <CannabiscapitalHeader />
            <section classNameName="hm_banner">
         <div classNameName="banner_box">
@@ -94,7 +96,7 @@ function Cannabiscapitalintertainment() {
 
 
 
-                            {videoData.data?.categories?.map((item) =>
+                    {videoData.data?.categories?.map((item) =>
                             (item.post_type === "2" ? (
                                 <div className="intertainWraper" key={item.id}>
                                     <div className="intertainWraperIn">
