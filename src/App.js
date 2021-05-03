@@ -6,6 +6,7 @@ import CannabiscapitalNetwork from './CannabiscapitalNetwork';
 import Cannabiscapitalcompound from './Cannabiscapitalcompound';
 import CannabiscapitalArtical from './CannabiscapitalArtical';
 import CannabiscapitalVideo from './CannabiscapitalVideo';
+import Video from './Video';
 import './style/css/style.css';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 // import Pagination from './Pagination';
@@ -17,6 +18,9 @@ function App() {
         {/* Header Route */}
           <Route exact path="/">
             <Cannabiscapitalindex />
+          </Route>
+          <Route exact path="/video">
+            <Video />
           </Route>
           <Route exact path="/home" >
             <Cannabiscapitalindex />
