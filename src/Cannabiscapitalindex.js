@@ -15,7 +15,8 @@ import playCircleOutline from '@iconify-icons/mdi/play-circle-outline';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
 import ReactPlayer from 'react-player';
-import InstagramEmbed from 'react-instagram-embed';
+// import InstagramEmbed from 'react-instagram-embed';
+import InstagramPost from './InstagramPost';
 function Cannabiscapitalindex() {
 
     return (
@@ -112,17 +113,7 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                    {/* <ReactPlayer
-                                                        width="300px"
-                                                        height='180px'
-                                                        controls
-                                                        url='https://www.youtube.com/watch?v=MDkzelNAfuM' className="newscard--postThum"
-                                                        onReady={() => console.log('onReady callback')}
-                                                        onStart={() => console.log('onStart callback')}
-                                                        onPause={() => console.log('onPause callback')}
-                                                        onEnded={() => console.log('onEmded callback')}
-                                                        onError={() => console.log('onError callback')}
-                                                    /> */}
+                                                   
                                                     {/* <img src={post1} className="newscard--postThum" alt="post1" /> */}
                                                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
                                                     allowFullScreen="true" title="video"></iframe>
@@ -182,17 +173,7 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                    {/* <ReactPlayer
-                                                        width="300px"
-                                                        height='180px'
-                                                        controls
-                                                        url='https://www.youtube.com/watch?v=ryUxrFUk6MY' className="newscard--postThum"
-                                                        onReady={() => console.log('onReady callback')}
-                                                        onStart={() => console.log('onStart callback')}
-                                                        onPause={() => console.log('onPause callback')}
-                                                        onEnded={() => console.log('onEmded callback')}
-                                                        onError={() => console.log('onError callback')}
-                                                    /> */}
+                                                   
                                                     {/* <img src={post1} className="newscard--postThum" alt="" />
                                                     <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
                                                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
@@ -218,17 +199,7 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                    {/* <ReactPlayer
-                                                        width="300px"
-                                                        height='180px'
-                                                        controls
-                                                        url='https://www.youtube.com/watch?v=MDkzelNAfuM' className="newscard--postThum"
-                                                        onReady={() => console.log('onReady callback')}
-                                                        onStart={() => console.log('onStart callback')}
-                                                        onPause={() => console.log('onPause callback')}
-                                                        onEnded={() => console.log('onEmded callback')}
-                                                        onError={() => console.log('onError callback')}
-                                                    /> */}
+                                                   
                                                     {/* <img src={post1} className="newscard--postThum" alt="post1" /> */}
                                                     {/* <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
                                                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
@@ -254,17 +225,7 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                    {/* <ReactPlayer
-                                                        width="300px"
-                                                        height='180px'
-                                                        controls
-                                                        url='https://www.youtube.com/watch?v=LjCzPp-MK48' className="newscard--postThum"
-                                                        onReady={() => console.log('onReady callback')}
-                                                        onStart={() => console.log('onStart callback')}
-                                                        onPause={() => console.log('onPause callback')}
-                                                        onEnded={() => console.log('onEmded callback')}
-                                                        onError={() => console.log('onError callback')}
-                                                    /> */}
+                                                 
                                                     {/* <img src={post2} className="newscard--postThum" alt="" /> */}
                                                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
                                                     allowFullScreen="true" title="video"></iframe>
@@ -314,20 +275,9 @@ function Cannabiscapitalindex() {
                                     <div className="sidebarMain">
                                         <h3 className="sidebarTitle sec_title">Instagram</h3>
                                         <div className="rightadv">
-                                            {/* <img src={instagram} alt="" /> */}
-                                            <InstagramEmbed
-                                                url='https://instagr.am/p/Zw9o4/'
-                                                clientAccessToken='123|456'
-                                                maxWidth={320}
-                                                hideCaption={false}
-                                                containerTagName='div'
-                                                protocol=''
-                                                injectScript
-                                                onLoading={() => { }}
-                                                onSuccess={() => { }}
-                                                onAfterRender={() => { }}
-                                                onFailure={() => { }}
-                                            />
+                                            
+                                            <InstagramPost />
+                                            
                                         </div>
                                     </div>
 

@@ -30,6 +30,7 @@ function Video() {
     const [vid, uid] = useState("")
     const [title, utit] = useState("")
     const [thumbnails, uthumbnails] = useState("")
+    var videoclip = video.slice(0,1)
     return (
         <div>
             <CannabiscapitalHeader />
@@ -51,12 +52,10 @@ function Video() {
                                         <div className="newscard list-item firstNews">
                                             <div className="newscard--wrap ">
                                                 <div className="newscard--videoPlay">
-                                                    
-                                                    <iframe src={video[0].vid} width="100%" height="450px" frameBorder="0"
+                                                    {videoclip.map(item=>
+                                                    <iframe src="https://www.youtube.com/embed/m7s8ZqJ8_ss?autoplay=1" width="100%" height="450px" frameBorder="0"
                                                     allowFullScreen="true" title="video"></iframe>
-                                                    {/* <img src={post1} className="newscard--postThum" alt="" /> */}
-                                                    {/* <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
-
+                                                     ) }
                                                 </div>
                                                 <div className="newscard--postCont">
                                                     <h4 className="newscard--postCategory">PUFF PIECE</h4>
@@ -91,11 +90,18 @@ function Video() {
                                     <div className="sidebarMain">
                                         <h3 className="sidebarTitle sec_title">Related Video</h3>
                                         <div className="rightadv">
-                                            <img src={video[0].thumbnails} alt="" />
-                                           
+                                            {videoclip.map(item=>
+                                            <img src={item.thumbnails} alt="" />
+                                            
+                                            )}
+                                            <div className="newsGuest">
+                                                {videoclip.map(item=>
+                                                <p>{item.title}</p>
+                                                )}
+                                                </div>
                                         </div>
                                     </div>
-
+                                    
                                     <div className="sidebarMain">
                                         <h3 className="sidebarTitle sec_title">Sponsors</h3>
                                         {/* <div className="rightadv">

@@ -7,6 +7,7 @@ import Cannabiscapitalcompound from './Cannabiscapitalcompound';
 import CannabiscapitalArtical from './CannabiscapitalArtical';
 import CannabiscapitalVideo from './CannabiscapitalVideo';
 import Video from './Video';
+
 import './style/css/style.css';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 // import Pagination from './Pagination';

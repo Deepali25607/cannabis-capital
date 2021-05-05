@@ -24,16 +24,25 @@ import { Link } from 'react-router-dom';
 function Cannabiscapitalintertainment(props) {
     // const courseName=props.match.params.coursename;
     const [video, setVideo] = useState([])
-    // const [videoData, setVideoData] = useState([])
+    
     useEffect(() => {
-        fetch("https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=PLL3jD_qUrZ8NDZdqA5WIjNbMlm2EuV9R0&key=AIzaSyA6Ah_CjzrdnEu1-WDfHx1JlQJQoJnyFoA")
+        // let playlist =" "
+        // if(courseName == "ORIGINAL CONTENT")
+        // {
+        //     playlist="PLL3jD_qUrZ8NDZdqA5WIjNbMlm2EuV9R0"
+        // }
+        // else if(courseName== "PLAYLIST TWO")
+        // {
+        //     playlist="MbjiR0C5xa4"
+        // }
+        fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=PLL3jD_qUrZ8NDZdqA5WIjNbMlm2EuV9R0&key=AIzaSyA6Ah_CjzrdnEu1-WDfHx1JlQJQoJnyFoA`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
 
                 const result = data.items.map(item => {
 
-                    return { title: item.snippet.title, vid: item.contentDetails.videoId, thumbnails: item.snippet.thumbnails.default.url }
+                    return { title: item.snippet.title, vid: item.contentDetails.videoId, thumbnails: item.snippet.thumbnails.medium.url }
                     //  console.log(item.snippet.title,item.contentDetails.videoId)
                 })
 
@@ -47,6 +56,7 @@ function Cannabiscapitalintertainment(props) {
     const [vid, uid] = useState("")
     const [title, utit] = useState("")
     const [thumbnails, uthumbnails] = useState("")
+    var videoclip = video.slice(0, 4)
     return (
         <div>
             <CannabiscapitalHeader />
@@ -124,64 +134,30 @@ function Cannabiscapitalintertainment(props) {
 
                                             </div>
                                             <a href="video" className="news_listBottom">
+
+
                                                 <ul className="newsList">
-                                                    {video.map((item, index) => {
+                                                    {videoclip.map((item, index) => {
                                                         return <li className="newsListItem" >
                                                             <div className="intThumbnail"  >
 
-                                                                <iframe  key={item.index} src={item.thumbnails}  ></iframe>
-                                                                {/* <img src={post2} alt=""/> */}
+                                                                <img key={item.index} src={item.thumbnails}  width="100%" height="100%"></img>
+
                                                             </div>
-                                                            
-                                                            
+
+
                                                             <div className="intDetails">
-                                                                
+
                                                                 {/* <span className="newsTitle">High Jinx</span> 
                                                     <span className="episodeNumber">Playlist Three</span> */}
                                                                 <p className="newsGuest">{item.title}</p>
                                                             </div>
                                                         </li>
-                                                        
+
                                                     })}
-                                                    
-                                                    {/* <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post2} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Playlist Three</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post2} alt=""/>
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Playlist Three</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li>
-                                            <li className="newsListItem">
-                                                <a href="#" className="newsListItemLink">
-                                                    <div className="intThumbnail">
-                                                        <img src={post2} alt="" />
-                                                    </div>
-                                                    <div className="intDetails">
-                                                        <span className="newsTitle">High Jinx</span> <span
-                                                            className="episodeNumber">Playlist Three</span>
-                                                        <p className="newsGuest">Featuring Special Guest</p>
-                                                    </div>
-                                                </a>                                                
-                                            </li> */}
+
                                                 </ul>
-                                            {/* </div> */}
+                                                {/* </div> */}
                                             </a>
                                         </div>
                                     </div>

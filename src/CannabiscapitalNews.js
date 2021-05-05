@@ -20,7 +20,11 @@ function CannabiscapitalNews() {
             .catch(err => console.log(err.message))
     }, [])
      console.log(newslist)
-    // console.log(newslist.data.post.image)
+    console.log(newslist.data)
+    console.log(newslist.data.post.image)
+    // return(<div>
+        
+    // </div>)
     return (
         <div>
             <CannabiscapitalHeader />
@@ -40,7 +44,7 @@ function CannabiscapitalNews() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap ">
                                                 <div className="newscard--videoPlay">
-                                                    <img src={post1} className="newscard--postThum" alt="" />
+                                                <img src={newslist.data.post.image}  className="newscard--postThum" alt="" />
                                                 </div>
                                                 <div className="newscard--postCont">
                                                     <h4 className="newscard--postCategory">PUFF PIECE</h4>
@@ -62,7 +66,7 @@ function CannabiscapitalNews() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                    <img src={post2} className="newscard--postThum" alt="" />
+                                                <img src={newslist.data.post.image}  className="newscard--postThum" alt="" />
                                                 </div>
                                                 <div className="newscard--postCont">
                                                     <h4 className="newscard--postCategory">Entertainment</h4>
