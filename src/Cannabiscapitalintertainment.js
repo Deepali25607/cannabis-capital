@@ -145,6 +145,7 @@ function Cannabiscapitalintertainment() {
                                              
                                                  {/* console.log(index,item) */}
                                                  {video?.items?.map((item, index) => {
+                                                     
                                                    return      <li className="newsListItem" key={index}>
                                                                 <div className="intThumbnail"  >
 

@@ -40,17 +40,9 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item firstNews">
                                             <div className="newscard--wrap ">
                                                 <div className="newscard--videoPlay">
-                                                    {/* <ReactPlayer
 
-                                                        url='https://www.youtube.com/watch?v=MDkzelNAfuM' className="newscard--postThum"
-                                                        onReady={() => console.log('onReady callback')}
-                                                        onStart={() => console.log('onStart callback')}
-                                                        onPause={() => console.log('onPause callback')}
-                                                        onEnded={() => console.log('onEmded callback')}
-                                                        onError={() => console.log('onError callback')}
-                                                    /> */}
                                                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="100%" height="450px" frameBorder="0"
-                                                    allowFullScreen="true" title="video"></iframe>
+                                                        allowFullScreen="true" title="video"></iframe>
                                                     {/* <img src={post1} className="newscard--postThum" alt="" /> */}
                                                     {/* <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
 
@@ -78,20 +70,10 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                    {/* <ReactPlayer
-                                                        width="300px"
-                                                        height='180px'
-                                                        controls
-                                                        url='https://www.youtube.com/watch?v=LjCzPp-MK48' className="newscard--postThum"
-                                                        onReady={() => console.log('onReady callback')}
-                                                        onStart={() => console.log('onStart callback')}
-                                                        onPause={() => console.log('onPause callback')}
-                                                        onEnded={() => console.log('onEmded callback')}
-                                                        onError={() => console.log('onError callback')}
-                                                    /> */}
+
                                                     {/* <img src={post2} className="newscard--postThum" alt="post2" /> */}
                                                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
-                                                    allowFullScreen="true" title="video"></iframe>
+                                                        allowFullScreen="true" title="video"></iframe>
                                                 </div>
                                                 <div classNameName="newscard--postCont">
                                                     <h4 className="newscard--postCategory">Entertainment</h4>
@@ -113,10 +95,10 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                   
+
                                                     {/* <img src={post1} className="newscard--postThum" alt="post1" /> */}
                                                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
-                                                    allowFullScreen="true" title="video"></iframe>
+                                                        allowFullScreen="true" title="video"></iframe>
                                                 </div>
                                                 <div className="newscard--postCont">
                                                     <h4 className="newscard--postCategory">PUFF PIECE</h4>
@@ -173,11 +155,11 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                   
+
                                                     {/* <img src={post1} className="newscard--postThum" alt="" />
                                                     <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
                                                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
-                                                    allowFullScreen="true" title="video"></iframe>
+                                                        allowFullScreen="true" title="video"></iframe>
                                                 </div>
                                                 <div className="newscard--postCont">
                                                     <h4 className="newscard--postCategory">PUFF PIECE</h4>
@@ -199,11 +181,11 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                   
+
                                                     {/* <img src={post1} className="newscard--postThum" alt="post1" /> */}
                                                     {/* <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
                                                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
-                                                    allowFullScreen="true" title="video"></iframe>
+                                                        allowFullScreen="true" title="video"></iframe>
                                                 </div>
                                                 <div className="newscard--postCont">
                                                     <h4 className="newscard--postCategory">PUFF PIECE</h4>
@@ -225,10 +207,10 @@ function Cannabiscapitalindex() {
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
-                                                 
+
                                                     {/* <img src={post2} className="newscard--postThum" alt="" /> */}
                                                     <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
-                                                    allowFullScreen="true" title="video"></iframe>
+                                                        allowFullScreen="true" title="video"></iframe>
 
                                                 </div>
                                                 <div className="newscard--postCont">
@@ -257,25 +239,27 @@ function Cannabiscapitalindex() {
                             <div className="rightWrap">
                                 <div className="rightWrapinIn">
                                     <div className="sidebarMain searchSidebar">
-                                        <form className="formSidebar" action="">
+                                        {/* <form className="formSidebar" action="">
                                             <input type="search" name="search" className="searchRight"
                                                 placeholder="Search and hit etner..." />
-                                        </form>
+                                        </form> */}
                                     </div>
                                     <div className="sidebarMain newsletterSidebar">
-                                        <h3 className="sidebarTitle sec_title">Newsletter</h3>
+                                        <h3 className="sidebarTitle sec_title">JOIN OUR NETWORK</h3>
                                         <form className="formSidebar" action="">
-                                            <label for="">Email Address</label>
+                                            {/* <label for="">Email Address</label>
                                             <input type="email" name="email" className="searchRight"
-                                                placeholder="Your Email Address" />
-                                            <input type="submit" value="Sign Up" />
+                                                placeholder="Your Email Address" /> */}
+                                            <a href="signup" data-toggle="modal" data-target="#signupForm">
+                                                <input type="submit" value="Sign Up" />
+                                            </a>
                                         </form>
                                     </div>
 
                                     <div className="sidebarMain">
                                         <h3 className="sidebarTitle sec_title">Instagram</h3>
                                         <div className="rightadv">
-                                            
+                                        
                                             <InstagramPost />
                                             
                                         </div>
