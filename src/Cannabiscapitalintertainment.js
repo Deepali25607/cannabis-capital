@@ -85,10 +85,13 @@ function Cannabiscapitalintertainment() {
                                                 <ul className="newsList">
                                                     <li className="newsListItem">
                                                         <div className="intThumbnail">
-                                                            <img src={live} alt="" />
+                                                            {/* <img src={live} alt="" />
                                                             <div className="showLive">
                                                                 <span>Live</span>
-                                                            </div>
+                                                            </div> */}
+                                                            <iframe src="https://id.twitch.tv/oauth2/token?client_id=qykybxzj9rqt1rji8qkh2uodjnsuv9grant_type=kywldaccg8yg6ceaw53n7e6gi4dv4"
+                                                             allowfullscreen="" scrolling="no" frameborder="0" allow="autoplay; fullscreen" title="Twitch" sandbox="allow-modals allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" width="100%" height="100%"></iframe>
+
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -133,7 +136,7 @@ function Cannabiscapitalintertainment() {
                                         <div className="col-lg-12">
                                             <div className="newslistTop">
                                                 <h2 className="newslistTop--title sec_title">Original</h2>
-                                                <a className="newslistTop--readmore" href="/YTmorevids/PLL3jD_qUrZ8NDZdqA5WIjNbMlm2EuV9R0">See More Videos > </a>
+                                                <a className="newslistTop--readmore" href="video">See More Videos > </a>
                                                 {/* <p className="newslistTop--content">
                                         This is playlist Three dude
                                         </p> */}
