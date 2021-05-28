@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import banner from './images/intertainment.png';
-import live from './images/live-post.png';
+import axios from 'axios';
 // import post2 from './images/post2.png';
 // import post1 from './images/post1.jpg';
 // import post3 from './images/post3.jpg';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
+import LiveVideo from './LiveVideo';
 // import sponsor1 from './images/sponsor1.jpg';
 // import sponsor2 from './images/sponsor2.jpg';
 // import sponsor3 from './images/sponsor3.jpg';
@@ -14,35 +15,25 @@ import CannabiscapitalFooter from './CannabiscapitalFooter';
 function Cannabiscapitalintertainment() {
     let CHANNELID = "UC1pb1oF42Wz0YwjQRKQBv5Q"
     const [video, setVideo] = useState([])
+    
     const getData = () => {
-
-
         fetch(`https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=${CHANNELID}&maxResults=28&key=AIzaSyA6Ah_CjzrdnEu1-WDfHx1JlQJQoJnyFoA`)
-
-            // fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=${play}&key=AIzaSyA6Ah_CjzrdnEu1-WDfHx1JlQJQoJnyFoA`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-
                 const result = data.items.map((item) => {
                     // return { title: item.snippet.title, id: item.id, thumbnails: item.snippet.thumbnails.medium.url }
                     if (item.contentDetails.itemCount > 2) {
-
                         fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=4&playlistId=${item.id}&key=AIzaSyA6Ah_CjzrdnEu1-WDfHx1JlQJQoJnyFoA `)
+                        
                             .then(Response => Response.json())
                             .then(video => {
-                                // console.log(dataplay);
-                                // const resultplay = dataplay?.items?.map((itemplay) => {
-                                    
+                                // console.log("Hello",video);
+                                // const resultplay = dataplay?.items?.map((itemplay) => {    
                                 //     return { title: itemplay?.snippet?.title, vid: itemplay?.contentDetails.videoId, playlistid: itemplay.snippet.playlistId, thumbnails: itemplay?.snippet?.thumbnails?.medium?.url }
-                                    
                                 // })
                             
                                 setVideo(video)
-                                // uid(resultplay.vid)
-                                // utit(resultplay.title)
-                                // pid(resultplay.playlistid)
-                                // uthumbnails(resultplay.thumbnails)
 
                             })
 
@@ -51,13 +42,12 @@ function Cannabiscapitalintertainment() {
 
             })
     }
-    // console.log("Hello",video);
-
+    
     useEffect(() => {
         getData();
 
     }, [])
-
+   
     // const [vid, uid] = useState("")
     // const [title, utit] = useState("")
     // const [thumbnails, uthumbnails] = useState("")
@@ -89,9 +79,10 @@ function Cannabiscapitalintertainment() {
                                                             <div className="showLive">
                                                                 <span>Live</span>
                                                             </div> */}
-                                                            <iframe src="https://id.twitch.tv/oauth2/token?client_id=qykybxzj9rqt1rji8qkh2uodjnsuv9grant_type=kywldaccg8yg6ceaw53n7e6gi4dv4"
-                                                             allowfullscreen="" scrolling="no" frameborder="0" allow="autoplay; fullscreen" title="Twitch" sandbox="allow-modals allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" width="100%" height="100%"></iframe>
+                                                            {/* <iframe src={live.thumbnail_url}
+                                                             allowfullscreen="" scrolling="no" frameborder="0" allow="autoplay; fullscreen" title="Twitch" sandbox="allow-modals allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" width="100%" height="100%"></iframe> */}
 
+                                                           <LiveVideo />
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -152,7 +143,7 @@ function Cannabiscapitalintertainment() {
                                                    return      <li className="newsListItem" key={index}>
                                                                 <div className="intThumbnail"  >
 
-                                                                <img src={item.snippet.thumbnails.medium.url} width="100%" height="100%"></img>
+                                                                <img src={item.snippet.thumbnails.medium} width="100%" height="100%"></img>
 
                                                             </div>
                                                             <div className="intDetails">
