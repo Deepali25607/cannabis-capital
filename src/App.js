@@ -10,7 +10,7 @@ import Video from './Video';
 import LiveVideo from './LiveVideo';
 import './style/css/style.css';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
-// import Pagination from './Pagination';
+import Sponsors from './Sponsors';
 function App() {
   return (
     <div >

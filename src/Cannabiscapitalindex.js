@@ -15,9 +15,44 @@ import playCircleOutline from '@iconify-icons/mdi/play-circle-outline';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
 import ReactPlayer from 'react-player';
+import axios from "axios";
 // import InstagramEmbed from 'react-instagram-embed';
 import InstagramPost from './InstagramPost';
+import Sponsors from './Sponsors';
+// import Pagino from './pagino';
 function Cannabiscapitalindex() {
+    const [newslist, setNewslist] = useState([])
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const [postsPerPage] = useState(10);
+    useEffect(() => {
+
+        axios.get("https://dev.cannabiscapitol.com/api/get_post_list?slug=well-done")
+
+
+            .then(res => {
+                console.log(res);
+                const store = res.data.data;
+                console.log(store);
+
+                const result = store.posts.map((item) => {
+                    let ContentSlice = item.content.slice(3, 30);
+                    let dateSlice = item.created_at.slice(0, 10);
+                    return { image: item?.image, title: item.title,date:dateSlice,content:ContentSlice}
+                })
+                console.log("Welcome Posts", result);
+                setNewslist(result);
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
+    }, [])
+
+
+    // const indexOfLastPost = currentPage * postsPerPage;
+    // const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    // const currentPosts = newslist.slice(indexOfFirstPost, indexOfLastPost);
+
+    // const paginate = pageNumber => setCurrentPage(pageNumber);
 
     return (
         <div>
@@ -66,171 +101,32 @@ function Cannabiscapitalindex() {
                                                 <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
                                             </div>
                                         </div>
-
+                                        {newslist.map((item)=>
                                         <div className="newscard list-item">
                                             <div className="newscard--wrap">
                                                 <div className="newscard--videoPlay">
 
-                                                    {/* <img src={post2} className="newscard--postThum" alt="post2" /> */}
-                                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
-                                                        allowFullScreen="true" title="video"></iframe>
+                                                    <img src={item.image} className="newscard--postThum" alt="post2" />
+                                                    {/* <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
+                                                        allowFullScreen="true" title="video"></iframe> */}
                                                 </div>
                                                 <div classNameName="newscard--postCont">
                                                     <h4 className="newscard--postCategory">Entertainment</h4>
-                                                    <h2 className="newscard--postTitle">Cypress Hill Gets a Hollywood Star</h2>
-                                                    <span className="newscard--postDate"><i>February 20, 2021 by John
-                                                    Smith</i></span>
-                                                    <p className="newscard--postPara">Cypres Hill makes History! And as cannabis
-                                                    advocates since
-                                                    the 90s, its awesome to see legends getting their place on the Hollywood
-                                                    Walk Of
-                                                    Fame. Bump some Cypress Hill today in love for the first of many for the
-                                                    Latino Hip
-                                                Hop group!</p>
+                                                    <h2 className="newscard--postTitle">{item.title}</h2>
+                                                    <span className="newscard--postDate"><i>{item.date}</i></span>
+                                                    <p className="newscard--postPara">{item.content}</p>
                                                 </div>
                                                 <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
                                             </div>
                                         </div>
+                                            )}
+                                        
 
-                                        <div className="newscard list-item">
-                                            <div className="newscard--wrap">
-                                                <div className="newscard--videoPlay">
+                                        
 
-                                                    {/* <img src={post1} className="newscard--postThum" alt="post1" /> */}
-                                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
-                                                        allowFullScreen="true" title="video"></iframe>
-                                                </div>
-                                                <div className="newscard--postCont">
-                                                    <h4 className="newscard--postCategory">PUFF PIECE</h4>
-                                                    <h2 className="newscard--postTitle">Marlboro Man Meets Marijuana: Big Tobacco
-                                                Bets On Bong Rips</h2>
-                                                    <span className="newscard--postDate"><i>February 20, 2021 by John
-                                                    Smith</i></span>
-                                                    <p className="newscard--postPara">Cypres Hill makes History! And as cannabis
-                                                    advocates since
-                                                    the 90s, its awesome to see legends getting their place on the Hollywood
-                                                    Walk Of
-                                                    Fame. Bump some Cypress Hill today in love for the first of many for the
-                                                    Latino Hip
-                                                Hop group!</p>
-                                                </div>
-                                                <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
-                                            </div>
-                                        </div>
-
-                                        <div className="newscard list-item">
-                                            <div className="newscard--wrap">
-                                                <div className="newscard--videoPlay">
-                                                    <ReactPlayer
-                                                        width="300px"
-                                                        height='180px'
-                                                        controls
-                                                        url='https://www.youtube.com/watch?v=MDkzelNAfuM' className="newscard--postThum"
-                                                        onReady={() => console.log('onReady callback')}
-                                                        onStart={() => console.log('onStart callback')}
-                                                        onPause={() => console.log('onPause callback')}
-                                                        onEnded={() => console.log('onEmded callback')}
-                                                        onError={() => console.log('onError callback')}
-                                                    />
-                                                    {/* <img src={post3} className="newscard--postThum" alt="post3" />
-                                                    <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
-                                                </div>
-                                                <div className="newscard--postCont">
-                                                    <h4 className="newscard--postCategory">PUFF PIECE</h4>
-                                                    <h2 className="newscard--postTitle">THCA: The Benefits, Effects, and Future</h2>
-                                                    <span className="newscard--postDate"><i>February 20, 2021 by John
-                                                    Smith</i></span>
-                                                    <p className="newscard--postPara">Cypres Hill makes History! And as cannabis
-                                                    advocates since
-                                                    the 90s, its awesome to see legends getting their place on the Hollywood
-                                                    Walk Of
-                                                    Fame. Bump some Cypress Hill today in love for the first of many for the
-                                                    Latino Hip
-                                                Hop group!</p>
-                                                </div>
-                                                <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
-                                            </div>
-                                        </div>
-
-                                        <div className="newscard list-item">
-                                            <div className="newscard--wrap">
-                                                <div className="newscard--videoPlay">
-
-                                                    {/* <img src={post1} className="newscard--postThum" alt="" />
-                                                    <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
-                                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
-                                                        allowFullScreen="true" title="video"></iframe>
-                                                </div>
-                                                <div className="newscard--postCont">
-                                                    <h4 className="newscard--postCategory">PUFF PIECE</h4>
-                                                    <h2 className="newscard--postTitle">Cypress Hill Gets a Hollywood Star</h2>
-                                                    <span className="newscard--postDate"><i>February 20, 2021 by John
-                                                    Smith</i></span>
-                                                    <p className="newscard--postPara">Cypres Hill makes History! And as cannabis
-                                                    advocates since
-                                                    the 90s, its awesome to see legends getting their place on the Hollywood
-                                                    Walk Of
-                                                    Fame. Bump some Cypress Hill today in love for the first of many for the
-                                                    Latino Hip
-                                                Hop group!</p>
-                                                </div>
-                                                <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
-                                            </div>
-                                        </div>
-
-                                        <div className="newscard list-item">
-                                            <div className="newscard--wrap">
-                                                <div className="newscard--videoPlay">
-
-                                                    {/* <img src={post1} className="newscard--postThum" alt="post1" /> */}
-                                                    {/* <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
-                                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
-                                                        allowFullScreen="true" title="video"></iframe>
-                                                </div>
-                                                <div className="newscard--postCont">
-                                                    <h4 className="newscard--postCategory">PUFF PIECE</h4>
-                                                    <h2 className="newscard--postTitle">Cypress Hill Gets a Hollywood Star</h2>
-                                                    <span className="newscard--postDate"><i>February 20, 2021 by John
-                                                    Smith</i></span>
-                                                    <p className="newscard--postPara">Cypres Hill makes History! And as cannabis
-                                                    advocates since
-                                                    the 90s, its awesome to see legends getting their place on the Hollywood
-                                                    Walk Of
-                                                    Fame. Bump some Cypress Hill today in love for the first of many for the
-                                                    Latino Hip
-                                                Hop group!</p>
-                                                </div>
-                                                <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
-                                            </div>
-                                        </div>
-
-                                        <div className="newscard list-item">
-                                            <div className="newscard--wrap">
-                                                <div className="newscard--videoPlay">
-
-                                                    {/* <img src={post2} className="newscard--postThum" alt="" /> */}
-                                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
-                                                        allowFullScreen="true" title="video"></iframe>
-
-                                                </div>
-                                                <div className="newscard--postCont">
-                                                    <h4 className="newscard--postCategory">PUFF PIECE</h4>
-                                                    <h2 className="newscard--postTitle">High Jinx Episode 1</h2>
-                                                    <span className="newscard--postDate"><i>February 20, 2021 by John
-                                                    Smith</i></span>
-                                                    <p className="newscard--postPara">Cypres Hill makes History! And as cannabis
-                                                    advocates since
-                                                    the 90s, its awesome to see legends getting their place on the Hollywood
-                                                    Walk Of
-                                                    Fame. Bump some Cypress Hill today in love for the first of many for the
-                                                    Latino Hip
-                                                Hop group!</p>
-                                                </div>
-                                                <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
+                                
                                 <Pagination />
                             </div>
                         </div>
@@ -268,14 +164,15 @@ function Cannabiscapitalindex() {
                                     <div className="sidebarMain">
                                         <h3 className="sidebarTitle sec_title">Sponsors</h3>
                                         <div className="rightadv">
-                                            <img src={sponsor1} alt="" />
+                                            {/* <img src={sponsor1} alt="" /> */}
+                                            <Sponsors />
                                         </div>
-                                        <div className="rightadv">
+                                        {/* <div className="rightadv">
                                             <img src={sponsor2} alt="" />
                                         </div>
                                         <div className="rightadv">
                                             <img src={sponsor3} alt="" />
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>

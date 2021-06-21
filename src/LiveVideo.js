@@ -16,7 +16,7 @@ const newpage = axios.create({
 axios.post('https://id.twitch.tv/oauth2/token?client_id=qykybxzj9rqt1rji8qkh2uodjnsuv9&client_secret=w6si8egpbwso3jp56ufihgt2pccntv&grant_type=client_credentials')
     .then(response => {
         accessToken = response.data.access_token;
-        console.log("Hello",accessToken);
+        // console.log("Hello",accessToken);
     
 var newpage = {
     method: 'get',
@@ -29,14 +29,14 @@ var newpage = {
 
   axios(newpage)
   .then(function (response) {
-    console.log((response));
+    // console.log((response));
     let store=(response.data.data[1].thumbnail_url)
-    console.log(store)
+    // console.log(store)
 
      setLive(store)
   })
   .catch(function (error) {
-    console.log(error);
+    // console.log(error);
    
   });
   
