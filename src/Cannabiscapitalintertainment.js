@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import banner from './images/intertainment.png';
-import axios from 'axios';
-import post2 from './images/post2.png';
+// import axios from 'axios';
+// import post2 from './images/post2.png';
 // import post1 from './images/post1.jpg';
 // import post3 from './images/post3.jpg';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
@@ -16,7 +16,7 @@ import Livestorevideo from './Livestorevideo';
 function Cannabiscapitalintertainment() {
     let CHANNELID = "UC1pb1oF42Wz0YwjQRKQBv5Q"
     const [video, setVideo] = useState([])
-    const [data, setData] = useState([])
+    // const [data, setData] = useState([])
     
     const getVideo = () => {
         fetch(`https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=${CHANNELID}&maxResults=28&key=AIzaSyA6Ah_CjzrdnEu1-WDfHx1JlQJQoJnyFoA`)
@@ -139,7 +139,7 @@ function Cannabiscapitalintertainment() {
                                                     <ul className="newsList">
                                                         <li className="newsListItem">
                                                             <div className="intDetails">
-                                                                <h3 className="sec_title">LIve Now</h3>
+                                                                <h3 className="sec_title">Live Now</h3>
                                                                 <span className="episodeNumber">Cannabis Capitol Daily </span>
                                                                 <span className="episodeNumber">@StonerShenanigans w/ </span>
                                                                 <span className="episodeNumber">@CaliforniaClouds420</span>
@@ -156,53 +156,7 @@ function Cannabiscapitalintertainment() {
                                 </div>
                             </div>
 
-
-                            
-                            <div className="intertainWraper">    
-                                  <div className="intertainWraperIn">
-                                    <div className="row">
-                                        <div className="col-lg-12">
-                                            <div className="newslistTop">
-                                                <h2 className="newslistTop--title sec_title">Live Stream</h2>
-                                                <a className="newslistTop--readmore" href="video">See More Videos > </a>
-                                                {/* <p className="newslistTop--content">
-                                        This is playlist Three dude
-                                        </p> */}
-
-                                            </div>
-                                            
-                                             <a href="video" className="news_listBottom">
-                                                <ul className="newsList">
-                                             
-                                                 {/* console.log(index,item) */} 
-                                                 {/* {data.map((item) => { */}
-                                                    
-                                                        <li className="newsListItem" >
-                                                                <div className="intThumbnail"  >
-                                                                 <Livestorevideo />
-                                                                {/* <img src={item.image} ></img> */}
-                                                                {/* <iframe src={item.url} frameborder="0" allowfullscreen="true" scrolling="no" height="200" width="250"></iframe>
-                                                                 {console.log(item.url,item.title)} */}
-                                                            </div>
-                                                            <div className="intDetails">
-                                                                {/* <p className="newsGuest">{item.videotitle}</p> */}
-                                                            </div>
-                                                        </li>
-                                                 
-                                                   {/* })}  */}
-                                                </ul>
-                                                {/* </div> */}
-                                            
-                                            </a>
-                                            
-                                        </div>
-                                    
-                                    </div>
-                                    
-                                </div>
-                                
-                            </div>
- 
+                            <Livestorevideo />
                       
                             
 

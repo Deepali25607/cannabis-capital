@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import news from './images/news-banner.jpg';
-import post1 from './images/post1.jpg';
-import post2 from './images/post2.png';
-import post3 from './images/post3.jpg';
+// import post1 from './images/post1.jpg';
+// import post2 from './images/post2.png';
+// import post3 from './images/post3.jpg';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
 import axios from "axios";
@@ -22,6 +22,7 @@ function CannabiscapitalNews() {
 
                 const result = store.posts.map((item) => {
                     let ContentSlice = item.content.slice(3, 30);
+                    ContentSlice = ContentSlice.substring(0, ContentSlice.length - 4);
                     let dateSlice = item.created_at.slice(0, 10);
                     return {image:item?.image,title:item.title,date:dateSlice,content:ContentSlice}
                 })

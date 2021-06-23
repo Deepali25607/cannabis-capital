@@ -1,4 +1,4 @@
-import React  from 'react'
+import React from 'react'
 import Cannabiscapitalindex from './Cannabiscapitalindex';
 import Cannabiscapitalintertainment from './Cannabiscapitalintertainment';
 import CannabiscapitalNews from './CannabiscapitalNews';
@@ -9,21 +9,18 @@ import CannabiscapitalVideo from './CannabiscapitalVideo';
 import Video from './Video';
 import LiveVideo from './LiveVideo';
 import './style/css/style.css';
-import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
-import Sponsors from './Sponsors';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   return (
     <div >
       <Router>
-      <Switch>
-        {/* Header Route */}
+        <Switch>
           <Route exact path="/">
-          <Cannabiscapitalindex />
+            <Cannabiscapitalindex />
           </Route>
           <Route exact path="/video">
             <Video />
           </Route>
-         
           <Route exact path="/home" >
             <Cannabiscapitalindex />
           </Route>
@@ -62,7 +59,7 @@ function App() {
             <CannabiscapitalVideo />
           </Route>
         </Switch>
-    </Router>
+      </Router>
     </div>
   );
 }
