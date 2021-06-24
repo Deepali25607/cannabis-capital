@@ -7,7 +7,6 @@ import Cannabiscapitalcompound from './Cannabiscapitalcompound';
 import CannabiscapitalArtical from './CannabiscapitalArtical';
 import CannabiscapitalVideo from './CannabiscapitalVideo';
 import Video from './Video';
-import LiveVideo from './LiveVideo';
 import './style/css/style.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
@@ -36,7 +35,6 @@ function App() {
           <Route path="/Cannabiscapitalcompound">
             <Cannabiscapitalcompound />
           </Route>
-          {/* Footer Route */}
           <Route exact path="/Cannabiscapitalindex1" >
             <Cannabiscapitalindex />
           </Route>

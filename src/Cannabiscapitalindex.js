@@ -32,13 +32,13 @@ function Cannabiscapitalindex() {
             .then(res => {
                 console.log(res);
                 const store = res.data.data;
-                console.log(store);
+                console.log("store", store);
 
                 const result = store.posts.map((item) => {
                     let ContentSlice = item.content.slice(3, 30);
                     ContentSlice = ContentSlice.substring(0, ContentSlice.length - 4);
                     let dateSlice = item.created_at.slice(0, 10);
-                    return { image: item?.image, title: item.title, date: dateSlice, content: ContentSlice }
+                    return { image: item?.image, title: item.title, date: dateSlice, content: ContentSlice, category: item.category }
                 })
                 console.log("Welcome Posts", result);
                 setNewslist(result);
@@ -52,9 +52,9 @@ function Cannabiscapitalindex() {
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPosts = newslist.slice(indexOfFirstPost, indexOfLastPost);
-    console.log("Slice",currentPosts);
+    console.log("Slice", currentPosts);
     const paginate = pageNumber => setCurrentPage(pageNumber);
-    console.log("Paginate",paginate)
+    console.log("Paginate", paginate)
     return (
         <div>
 

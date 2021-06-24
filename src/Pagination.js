@@ -1,7 +1,7 @@
 // import React from 'react';
 // // import { Link } from 'react-router-dom';
 // function Pagination() {
- 
+
 //   return (
 //     <div id="pagination-container" className="light-theme simple-pagination">
 //       <ul>
@@ -30,7 +30,7 @@
 // export default Pagination;
 
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
@@ -41,11 +41,11 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   }
 
   return (
-        <div id="pagination-container" className="light-theme simple-pagination">
-          <ul className='pagination'>
+    <div id="pagination-container" className="light-theme simple-pagination">
+      <ul className='pagination'>
         {pageNumbers.map(number => (
-          <li key={number} className='page-link'>
-            <a onClick={() => paginate(number)}  className='page-link'>
+          <li key={number} >
+            <a onClick={() => paginate(number)} className='page-link'>
               {number}
             </a>
           </li>
