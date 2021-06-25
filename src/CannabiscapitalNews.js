@@ -7,9 +7,12 @@ import news from './images/news-banner.jpg';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
 import axios from "axios";
-
+import Pagination from './Pagination';
 function CannabiscapitalNews() {
     const [newslist, setNewslist] = useState([])
+    // const [newslist, setNewslist] = useState([])
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(9);
     useEffect(() => {
 
         axios.get("https://dev.cannabiscapitol.com/api/get_news_list?slug=well-done")
@@ -39,6 +42,12 @@ function CannabiscapitalNews() {
     // return(<div>
 
     // </div>)
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = newslist.slice(indexOfFirstPost, indexOfLastPost);
+    console.log("Slice", currentPosts);
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+    console.log("Paginate", paginate)
     return (
         <div>
             <CannabiscapitalHeader />
@@ -57,7 +66,7 @@ function CannabiscapitalNews() {
                                 <div className="leftWrapin">
 
                                     <div className="cardMain list-wrapper">
-                                        {newslist.map((item) =>
+                                        {currentPosts.map((item) =>
                                             <div className="newscard list-item">
 
                                                 <div className="newscard--wrap ">
@@ -88,6 +97,13 @@ function CannabiscapitalNews() {
 
                                     </div>
                                     <div id="pagination-container"></div>
+                                     {/* <Posts newslist={currentPosts} /> */}
+                                <Pagination
+                                    postsPerPage={postsPerPage}
+                                    totalPosts={newslist.length}
+                                    paginate={paginate}
+
+                                />
                                 </div>
                             </div>
                         </div>

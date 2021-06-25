@@ -37,7 +37,7 @@ function Livestorevideo() {
                     <div className="col-lg-12">
                         <div className="newslistTop">
                             <h2 className="newslistTop--title sec_title">Daily Live Stream</h2>
-                            <a className="newslistTop--readmore" href="video">See More Videos > </a>
+                            <a className="newslistTop--readmore" href="video">See More Videos  </a>
                             {/* <p className="newslistTop--content">
                        This is playlist Three dude
                        </p> */}
@@ -51,9 +51,7 @@ function Livestorevideo() {
 
                                     return <li className="newsListItem" >
                                         <div className="intThumbnail"  >
-
                                             <img src={item.image} ></img>
-
                                         </div>
                                         <div className="intDetails">
                                             <p className="newsGuest">{item.videotitle}</p>
@@ -62,7 +60,6 @@ function Livestorevideo() {
 
                                 })}
                             </ul>
-
 
                         </a>
 
@@ -73,9 +70,6 @@ function Livestorevideo() {
             </div>
 
         </div>
-
-
-
 
     )
 }
