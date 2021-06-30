@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
-
+import ReactPlayer from 'react-player/lazy'
 function Livestorevideo() {
     const [data, setData] = useState([])
     useEffect(() => {
@@ -29,6 +29,17 @@ function Livestorevideo() {
                 console.log(error)
             })
     }, [])
+    function handleurl(){
+        alert("Hello");
+        data.map((item) => {
+     return(
+         <div>
+              
+     <ReactPlayer url={item.videourl} />
+     </div>
+     )
+     })
+    }
     return (
 
         <div className="intertainWraper">
@@ -44,17 +55,18 @@ function Livestorevideo() {
 
                         </div>
 
-                        <a href="video" className="news_listBottom">
+                        <a href="" className="news_listBottom">
                             <ul className="newsList">
 
                                 {data.map((item) => {
 
                                     return <li className="newsListItem" >
                                         <div className="intThumbnail"  >
-                                            <img src={item.image} ></img>
+                                            <img src={item.image} onClick={() =>handleurl(item.videourl,item.title)}></img>
                                         </div>
                                         <div className="intDetails">
                                             <p className="newsGuest">{item.videotitle}</p>
+                                            <p className="newsGuest">{item.videourl}</p>
                                         </div>
                                     </li>
 

@@ -9,6 +9,7 @@ import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
 import LiveVideo from './LiveVideo';
 import Livestorevideo from './Livestorevideo';
+import { TwitchEmbed, TwitchChat, TwitchClip, TwitchPlayer } from 'react-twitch-embed';
 // import sponsor1 from './images/sponsor1.jpg';
 // import sponsor2 from './images/sponsor2.jpg';
 // import sponsor3 from './images/sponsor3.jpg';
@@ -16,8 +17,8 @@ import Livestorevideo from './Livestorevideo';
 function Cannabiscapitalintertainment() {
     let CHANNELID = "UC1pb1oF42Wz0YwjQRKQBv5Q"
     const [video, setVideo] = useState([])
-    // const [data, setData] = useState([])
-    
+
+
     const getVideo = () => {
         fetch(`https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=${CHANNELID}&maxResults=28&key=AIzaSyA6Ah_CjzrdnEu1-WDfHx1JlQJQoJnyFoA`)
             .then(res => res.json())
@@ -25,59 +26,34 @@ function Cannabiscapitalintertainment() {
                 // console.log(data);
                 const result = data.items.map((item) => {
                     // return { title: item.snippet.title, id: item.id, thumbnails: item.snippet.thumbnails.medium.url }
-                    if (item.contentDetails.itemCount > 2) {
+                    if (item.contentDetails.itemCount > 0) {
                         fetch(`https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=4&playlistId=${item.id}&key=AIzaSyA6Ah_CjzrdnEu1-WDfHx1JlQJQoJnyFoA `)
-                        
+
                             .then(Response => Response.json())
                             .then(video => {
                                 // console.log("Hello",video);
-                                const resultplay = video?.items?.map((itemplay) => {    
+                                const resultplay = video?.items?.map((itemplay) => {
                                     return { title: itemplay?.snippet?.title, vid: itemplay?.contentDetails.videoId, playlistid: itemplay.snippet.playlistId, thumbnails: itemplay?.snippet?.thumbnails?.medium?.url }
                                     // console.log(itemplay?.snippet?.thumbnails?.medium?.url);
-                                    
-                                })
-                                // console.log(resultplay);
-                                setVideo(video)
-                                
-                            })
-                            
 
-                        }
+                                })
+                                console.log("Excuse", resultplay);
+                                setVideo(resultplay)
+
+                            })
+
+
+                    }
                 })
 
             })
-           
+
     }
-   
-    
-    useEffect(() => { 
+
+
+    useEffect(() => {
         getVideo();
-      
-        // var config = {
-        //     method: 'get',
-        //     url: 'https://api.twitch.tv/kraken/channels/625512126/videos?limit=24',
-        //     headers: { 
-        //         'Accept': 'application/vnd.twitchtv.v5+json',
-        //         'Client-ID': 'qykybxzj9rqt1rji8qkh2uodjnsuv9'
-        //     }
-        // }
-        // axios(config)
-        // .then(result =>{
-        //     console.log(result)
-        //     const store=result.data.videos;
-        //    console.log("Hello",store);
-        //    const livevideo=store.map(item =>{
-        //     //    const url=item.url
-        //     //    console.log(livevideo);
-        //     return{videourl:item.url,videotitle:item.title,image:item.thumbnails.large[0].url}
-        //    })
-        //    console.log("Welcome",livevideo);
-        //    setData(livevideo)
-        // })
-        // .catch(error=>{
-        //     console.log(error)
-        // })
-       
+
     }, [])
     // https://api.twitch.tv/kraken/channels/102381501/videos
     // id 625512126
@@ -85,11 +61,6 @@ function Cannabiscapitalintertainment() {
     // const [title, utit] = useState("")
     // const [thumbnails, uthumbnails] = useState("")
     // const [playlistid, pid] = useState("")
-
-
-
-
-  
 
     return (
         <div>
@@ -104,7 +75,6 @@ function Cannabiscapitalintertainment() {
                 <div className="container">
                     <div className="row">
                         <div className="col">
-
                             <div className="intertainWraper">
                                 <div className="intertainWraperIn">
                                     <div className="row">
@@ -120,7 +90,15 @@ function Cannabiscapitalintertainment() {
                                                             {/* <iframe src={live.thumbnail_url}
                                                              allowfullscreen="" scrolling="no" frameborder="0" allow="autoplay; fullscreen" title="Twitch" sandbox="allow-modals allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" width="100%" height="100%"></iframe> */}
 
-                                                           <LiveVideo />
+                                                            {/* <LiveVideo /> */}
+                                                            <TwitchEmbed
+                                                                channel="CannabisCapitol"
+                                                                id="625512126"
+                                                                withchat="false"
+                                                                theme="dark"     
+                                                                muted
+                                                                onVideoPause={() => console.log(':(')} style={{width:"700px",height:"435px"}}  />
+                                                            
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -133,7 +111,7 @@ function Cannabiscapitalintertainment() {
                                                     <p className="newslistTop--content">
                                                         Daily live streams from Cannabis Capitol studios featuring various cannabis
                                                         personalities and influencers.
-                                            </p>
+                                                    </p>
                                                 </div>
                                                 <div className="news_listBottom">
                                                     <ul className="newsList">
@@ -145,7 +123,7 @@ function Cannabiscapitalintertainment() {
                                                                 <span className="episodeNumber">@CaliforniaClouds420</span>
                                                                 <span className="episodeNumber">@JenniLovesDank</span>
                                                                 <span className="episodeNumber">@JourdanJade, & @The_Faded_Kitten</span>
-                                                                <p className="newsGuest"><a href="#!">Live now on twitch.tv/cannabiscapitol </a></p>
+                                                                <p className="newsGuest"><a href="https://www.twitch.tv/cannabiscapitol" target="-blank" rel="noreferrer">Live now on twitch.tv/cannabiscapitol </a></p>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -157,63 +135,63 @@ function Cannabiscapitalintertainment() {
                             </div>
 
                             <Livestorevideo />
-                      
-                            
 
-                            <div className="intertainWraper">    
-                                  <div className="intertainWraperIn">
-                                    <div className="row">
-                                        <div className="col-lg-12">
-                                            <div className="newslistTop">
-                                                <h2 className="newslistTop--title sec_title">Original</h2>
-                                                <a className="newslistTop--readmore" href="video">See More Videos > </a>
-                                                {/* <p className="newslistTop--content">
+
+                            {video.map((item) => {
+                                console.log("Me", item)
+                                return <div className="intertainWraper">
+
+                                    <div className="intertainWraperIn">
+
+                                        <div className="row">
+                                            <div className="col-lg-12">
+
+                                                <div className="newslistTop">
+
+                                                    <h2 className="newslistTop--title sec_title">Original</h2>
+                                                    <a className="newslistTop--readmore" href="video">See More Videos > </a>
+                                                    {/* <p className="newslistTop--content">
                                         This is playlist Three dude
                                         </p> */}
 
-                                            </div>
-                                            
-                                             <a href="video" className="news_listBottom">
-                                                <ul className="newsList">
-                                             
-                                                 {/* console.log(index,item) */}
-                                                 {video?.items?.map((item, index) => {
-                                                     
-                                                   return      <li className="newsListItem" key={index}>
-                                                                <div className="intThumbnail"  >
+                                                </div>
 
-                                                                <img src={item?.snippet?.thumbnails?.medium?.url} width="100%" height="100%"></img>
+                                                <a href="video" className="news_listBottom">
+                                                    <ul className="newsList">
+
+
+
+                                                        {/* {item.map((val)=>{ */}
+                                                        <li className="newsListItem" >
+                                                            <div className="intThumbnail"  >
+
+                                                                <img src={item?.thumbnails} width="100%" height="100%"></img>
 
                                                             </div>
+
                                                             <div className="intDetails">
-                                                                <p className="newsGuest">{item.snippet.title}</p>
+                                                                <p className="newsGuest">{item.title}</p>
                                                             </div>
                                                         </li>
-                                                 
-                                                    })} 
-                                                </ul>
-                                                {/* </div> */}
-                                            
-                                            </a>
-                                            
+                                                        {/* })} */}
+
+                                                    </ul>
+
+                                                </a>
+
+                                            </div>
+
                                         </div>
-                                    
+
                                     </div>
-                                    
+
                                 </div>
-                                
-                            </div>
- 
+                            })}
                         </div>
                     </div>
                 </div>
-           
+
             </section>
-
-
-
-
-
 
             <CannabiscapitalFooter />
         </div>
