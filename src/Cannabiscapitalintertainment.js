@@ -3,22 +3,16 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import banner from './images/intertainment.png';
 import axios from 'axios';
 import ReactPlayer from 'react-player'
-// import post2 from './images/post2.png';
-// import post1 from './images/post1.jpg';
-// import post3 from './images/post3.jpg';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
-import { TwitchEmbed } from 'react-twitch-embed';
-// import sponsor1 from './images/sponsor1.jpg';
-// import sponsor2 from './images/sponsor2.jpg';
-// import sponsor3 from './images/sponsor3.jpg';
+import {TwitchPlayer}  from 'react-twitch-embed';
 // https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=PLL3jD_qUrZ8NDZdqA5WIjNbMlm2EuV9R0&key=AIzaSyA6Ah_CjzrdnEu1-WDfHx1JlQJQoJnyFoA
-function Cannabiscapitalintertainment() {
+const Cannabiscapitalintertainment = ()=> {
     let CHANNELID = "UC1pb1oF42Wz0YwjQRKQBv5Q"
     const [video, setVideo] = useState([])
     const [data, setData] = useState([])
-    const [realTimeVideo, setrealTimeVideo]=useState("")
-    const [videoDetails, setVideoDetails]=useState("")
+    const [realTimeVideo, setrealTimeVideo]=useState(" ")
+    const [videoDetails, setVideoDetails]=useState(" ")
     const getVideo = () => {
         fetch(`https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=${CHANNELID}&maxResults=28&key=AIzaSyA6Ah_CjzrdnEu1-WDfHx1JlQJQoJnyFoA`)
             .then(res => res.json())
@@ -41,54 +35,32 @@ function Cannabiscapitalintertainment() {
                                 setVideo(resultplay)
 
                             })
-
-
                     }
                 })
 
             })
 
     }
-    function getlivevideo() {
-        var config = {
-            method: 'get',
-            url: 'https://api.twitch.tv/kraken/channels/625512126/videos?limit=24',
-            headers: {
-                'Accept': 'application/vnd.twitchtv.v5+json',
-                'Client-ID': 'qykybxzj9rqt1rji8qkh2uodjnsuv9'
-            }
-        }
-        axios(config)
-            .then(result => {
-                // console.log(result)
-                const store = result.data.videos;
-                // console.log("Hello", store);
-                const livevideo = store.map(item => {
-                    //    const url=item.url
-                    //    console.log(livevideo);
-                    return { videourl: item.url, videotitle: item.title, image: item.thumbnails?.large[0]?.url }
-                })
-                // console.log("Welcome", livevideo);
-                setData(livevideo)
-              
-            })
-            .catch(error => {
-            console.log(error)
-            })
-    }
-
     useEffect(() => {
-        getlivevideo();
+        // getlivevideo();
         getVideo();
 
-    }, [setData])
-    const handleUrl=(videourl,details)=>{
-        setrealTimeVideo(videourl)
-        setVideoDetails(details)
-    }
-    useEffect(()=>{
-        handleUrl()
-    },[setrealTimeVideo])
+    }, [])
+    useEffect(() => {
+        axios.get('https://api.twitch.tv/kraken/channels/625512126/videos?limit=14',{
+            headers:{
+                'Accept' : 'application/vnd.twitchtv.v5+json',
+                "Client-ID":"urw4uabfjw9juq032a4r3tneah3ggx"
+            }
+        }).then(json=>setData(json.data)).catch(err=>console.log(err.message))
+}, [setData])
+const handleUrl=(url,details)=>{
+    setrealTimeVideo(url)
+    setVideoDetails(details)
+}
+useEffect(()=>{
+    handleUrl()
+},[setrealTimeVideo])
 
     return (
         <div>
@@ -111,14 +83,10 @@ function Cannabiscapitalintertainment() {
                                                 <ul className="newsList">
                                                     <li className="newsListItem">
                                                         <div className="intThumbnail">
-                                                            {/* <img src={live} alt="" />
+                                                        {realTimeVideo===undefined ? <TwitchPlayer channel="cannabiscapitol" width={700} height={435} controls/> 
+                                                          :<ReactPlayer url={realTimeVideo} width={700} height={435} controls/>}
                                                             <div className="showLive">
-                                                                <span>Live</span>
-                                                            </div> */}
-                                                            {/* <TwitchEmbed channel="CannabisCapitol" id="625512126" width={700} height={435}  /> */}
-                                                            {realTimeVideo === undefined ? <TwitchEmbed channel="CannabisCapitol"  withchat="false" theme="dark"  controls />
-                                                                : <ReactPlayer url={realTimeVideo} width={700} height={435} controls />}
-
+                                                            </div>
                                                         </div>
                                                     </li>
                                                 </ul>
@@ -161,20 +129,20 @@ function Cannabiscapitalintertainment() {
                                         <div className="col-lg-12">
                                             <div className="newslistTop">
                                                 <h2 className="newslistTop--title sec_title">Daily Live Stream</h2>
-                                                <a className="newslistTop--readmore" href="video">See More Videos  </a>
+                                                {/* <a className="newslistTop--readmore" href="video">See More Videos  </a> */}
                                                 </div>
                                             <a href="" className="news_listBottom">
                                                 <ul className="newsList">
 
-                                                    {data.map((item) => {
+                                                    {data?.videos?.map((item) => {
 
                                                         return <li className="newsListItem" >
                                                             <div className="intThumbnail"  >
-                                                                <img src={item.image} onClick={() =>handleUrl(item.videourl)}></img>
+                                                                <img src={item.thumbnails.large[0].url} alt={item.thumbnails.large[0].url} onClick={()=>handleUrl(item.url,item.title)}></img>
                                                             </div>
                                                             <div className="intDetails">
-                                                                <p className="newsGuest">{item.videotitle}</p>
-                                                                <p className="newsGuest">{item.videourl}</p>
+                                                                <p className="newsGuest">{item.title}</p>
+                                                                {/* <p className="newsGuest">{item.videourl}</p> */}
                                                             </div>
                                                         </li>
 
