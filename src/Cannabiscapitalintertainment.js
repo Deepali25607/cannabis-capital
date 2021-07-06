@@ -6,6 +6,9 @@ import ReactPlayer from 'react-player'
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
 import {TwitchPlayer}  from 'react-twitch-embed';
+import OwlCarousel from 'react-owl-carousel-loop';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 // https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=PLL3jD_qUrZ8NDZdqA5WIjNbMlm2EuV9R0&key=AIzaSyA6Ah_CjzrdnEu1-WDfHx1JlQJQoJnyFoA
 const Cannabiscapitalintertainment = ()=> {
     let CHANNELID = "UC1pb1oF42Wz0YwjQRKQBv5Q"
@@ -55,11 +58,13 @@ const Cannabiscapitalintertainment = ()=> {
         }).then(json=>setData(json.data)).catch(err=>console.log(err.message))
 }, [setData])
 const handleUrl=(url,details)=>{
+    console.log(url)
     setrealTimeVideo(url)
     setVideoDetails(details)
 }
 useEffect(()=>{
     handleUrl()
+    
 },[setrealTimeVideo])
 
     return (
@@ -131,14 +136,16 @@ useEffect(()=>{
                                                 <h2 className="newslistTop--title sec_title">Daily Live Stream</h2>
                                                 {/* <a className="newslistTop--readmore" href="video">See More Videos  </a> */}
                                                 </div>
-                                            <a href="" className="news_listBottom">
-                                                <ul className="newsList">
-
+                                            {/* <a href="" className="news_listBottom">
+                                                <ul className="newsList"> */}
+                                                <OwlCarousel className="owl-theme" loop items={4} margin={10}
+    
+>
                                                     {data?.videos?.map((item) => {
 
                                                         return <li className="newsListItem" >
                                                             <div className="intThumbnail"  >
-                                                                <img src={item.thumbnails.large[0].url} alt={item.thumbnails.large[0].url} onClick={()=>handleUrl(item.url,item.title)}></img>
+                                                                <img src={item.thumbnails.large[0].url} alt={item.thumbnails.large[0].url} onClick={()=>handleUrl(item.url)}></img>
                                                             </div>
                                                             <div className="intDetails">
                                                                 <p className="newsGuest">{item.title}</p>
@@ -147,9 +154,10 @@ useEffect(()=>{
                                                         </li>
 
                                                     })}
-                                                </ul>
+                                                    </OwlCarousel>
+                                                {/* </ul> */}
 
-                                            </a>
+                                            {/* </a> */}
 
                                         </div>
 
