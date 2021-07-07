@@ -10,8 +10,8 @@ import banner from './images/banner.png';
 // import sponsor2 from './images/sponsor2.jpg';
 // import sponsor3 from './images/sponsor3.jpg';
 // import Sighup from './Signup';
-// import { Icon } from '@iconify/react';
-// import playCircleOutline from '@iconify-icons/mdi/play-circle-outline';
+import { Icon } from '@iconify/react';
+import playCircleOutline from '@iconify-icons/mdi/play-circle-outline';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
 // import ReactPlayer from 'react-player';
@@ -23,7 +23,7 @@ import Sponsors from './Sponsors';
 function Cannabiscapitalindex() {
     const [newslist, setNewslist] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(8);
+    const [postsPerPage] = useState(6);
     useEffect(() => {
 
         axios.get("https://dev.cannabiscapitol.com/api/get_post_list?slug=well-done")
@@ -38,7 +38,7 @@ function Cannabiscapitalindex() {
                     let ContentSlice = item.content.slice(3, 30);
                     ContentSlice = ContentSlice.substring(0, ContentSlice.length - 4);
                     let dateSlice = item.created_at.slice(0, 10);
-                    return { image: item?.image, title: item.title, date: dateSlice, content: ContentSlice, category: item.category }
+                    return { image: item?.image, title: item.title, date: dateSlice, content: ContentSlice, category: item?.category?.title}
                 })
                 console.log("Welcome Posts", result);
                 setNewslist(result);
@@ -100,26 +100,50 @@ function Cannabiscapitalindex() {
                                             </div>
                                         </div>
                                         {currentPosts.map((item) =>
+                                        item.category==="ENTERTAINMENT" ?
+                                        
                                             <div className="newscard list-item">
                                                 <div className="newscard--wrap">
+                                                
                                                     <div className="newscard--videoPlay">
-
-                                                        <img src={item.image} className="newscard--postThum" alt="post2" />
-                                                        {/* <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="300px" height="180px" frameBorder="0"
-                                                          allowFullScreen="true" title="video"></iframe> */}
-                                                    </div>
+                                                  
+                                                    <img src={item.image} className="newscard--postThum" alt="post2" />
+                                                    <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" />
+                                                   </div>
                                                     <div classNameName="newscard--postCont">
-                                                        <h4 className="newscard--postCategory">Entertainment</h4>
+                                                        <h4 className="newscard--postCategory">{item.category}</h4>
                                                         <h2 className="newscard--postTitle">{item.title}</h2>
                                                         <span className="newscard--postDate"><i>{item.date}</i></span>
                                                         <p className="newscard--postPara">{item.content}</p>
                                                     </div>
                                                     <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
+                                                     </div>
+                                                     </div>
+                                                     
+                                                       :
+                                                       <div className="newscard list-item">
+                                                <div className="newscard--wrap">
+                                                
+                                                    <div className="newscard--videoPlay">
+                                                       <img src={item.image} className="newscard--postThum" alt="post2" /> 
+                                                        
+                                                    </div>
+                                        
+                                                    <div classNameName="newscard--postCont">
+                                                        <h4 className="newscard--postCategory">{item.category}</h4>
+                                                        <h2 className="newscard--postTitle">{item.title}</h2>
+                                                        <span className="newscard--postDate"><i>{item.date}</i></span>
+                                                        <p className="newscard--postPara">{item.content}</p>
+                                                    </div>
+                                                    <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">Read More</a>
+                                        
                                                 </div>
                                             </div>
-                                        )}
+                                        
+    )}
                                     </div>
                                 </div>
+                                                        
                                 {/* <Posts newslist={currentPosts} /> */}
                                 <Pagination
                                     postsPerPage={postsPerPage}

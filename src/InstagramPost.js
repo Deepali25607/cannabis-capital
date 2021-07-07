@@ -23,7 +23,7 @@ const InstagramPost = () => {
       <div style={row}>
     <div style={column} >
      
-        <InstagramFeed token="IGQVJWak9RbERDOHloVVlDMnJrRC1SaXFzWEFGZAGVFQ1ZAfYlVlWmttUE94ZAVBXZAzNNRnZARb195T3J3OXVEdVh1WW5lMDE2SVhMU3FsZAkVNVml4R29Fa2U2TGF6WVoxSkl4SUJHQm0yOFBjOWlzV2ppcgZDZD" counter="6" />
+        <InstagramFeed token="IGQVJVSE9oMGduenAtYzhCcVNJazBTWWkyd3ozblVWdGxlWGN1YmRHa2N4MUN2dGFWcThXSFF5a1NmZA3drVkdtNndodGYtRDZANRjlyV2NzajVMRnctTTlVODAxanpaX0NXbjNQUnhTLU00OUNzYUFwcQZDZD" counter="6" />
         </div>
         </div>
     </div>
