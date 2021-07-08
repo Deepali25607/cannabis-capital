@@ -136,13 +136,8 @@ useEffect(()=>{
                                                 <h2 className="newslistTop--title sec_title">Daily Live Stream</h2>
                                                 {/* <a className="newslistTop--readmore" href="video">See More Videos  </a> */}
                                                 </div>
-                                            {/* <a href="" className="news_listBottom">
-                                                <ul className="newsList"> */}
-                                                <OwlCarousel className="owl-theme" loop items={4} margin={10}
-    
->
+                                                <OwlCarousel className="owl-theme" loop items={4} margin={10}>
                                                     {data?.videos?.map((item) => {
-
                                                         return <li className="newsListItem" >
                                                             <div className="intThumbnail"  >
                                                                 <img src={item.thumbnails.large[0].url} alt={item.thumbnails.large[0].url} onClick={()=>handleUrl(item.url)}></img>
@@ -152,13 +147,8 @@ useEffect(()=>{
                                                                 {/* <p className="newsGuest">{item.videourl}</p> */}
                                                             </div>
                                                         </li>
-
                                                     })}
                                                     </OwlCarousel>
-                                                {/* </ul> */}
-
-                                            {/* </a> */}
-
                                         </div>
 
                                     </div>
@@ -166,7 +156,6 @@ useEffect(()=>{
                                 </div>
 
                             </div>
-
 
                             {video.map((item) => {
                                 // console.log("Me", item)
@@ -181,17 +170,9 @@ useEffect(()=>{
 
                                                     <h2 className="newslistTop--title sec_title">Original</h2>
                                                     <a className="newslistTop--readmore" href="video">See More Videos > </a>
-                                                    {/* <p className="newslistTop--content">
-                                        This is playlist Three dude
-                                        </p> */}
-
                                                 </div>
-
                                                 <a href="video" className="news_listBottom">
                                                     <ul className="newsList">
-
-
-
                                                         {/* {item.map((val)=>{ */}
                                                         <li className="newsListItem" >
                                                             <div className="intThumbnail"  >
@@ -204,8 +185,7 @@ useEffect(()=>{
                                                                 <p className="newsGuest">{item.title}</p>
                                                             </div>
                                                         </li>
-                                                        {/* })} */}
-
+                                
                                                     </ul>
 
                                                 </a>

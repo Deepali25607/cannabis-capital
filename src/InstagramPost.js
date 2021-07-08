@@ -1,4 +1,3 @@
-import { findByLabelText } from '@testing-library/react'
 import React from 'react'
 import InstagramFeed from 'react-ig-feed'
 const MainDiv ={

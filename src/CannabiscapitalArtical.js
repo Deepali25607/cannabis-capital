@@ -66,12 +66,12 @@ draws ever closer. Earlier this year, Constellation Brands, the parent company o
                                             <div className="rightadv">
                                                 <div className="relatedArticle">
                                                     <ul className="relatedArticle--list">
-                                                        <li className="relatedarticle--items"><a className="relatedarticle--cont" href="#">Prop 64: Pass it or Goup in Smoke?</a></li>
-                                                        <li className="relatedarticle--items"><a className="relatedarticle--cont" href="#">CBD: The Benefits, Effects, and Future</a></li>
-                                                        <li className="relatedarticle--items"><a className="relatedarticle--cont" href="#">Can CBD Help our Fuzzy Friends?</a></li>
-                                                        <li className="relatedarticle--items"><a className="relatedarticle--cont" href="#">Is the FDA Monkeying Around?</a></li>
-                                                        <li className="relatedarticle--items"><a className="relatedarticle--cont" href="#">High Hopes for the U.S.A</a></li>
-                                                        <li className="relatedarticle--items"><a className="relatedarticle--cont" href="#">Cannabis and PTSD</a></li>
+                                                        <li className="relatedarticle--items"><a className="relatedarticle--cont" href="#!">Prop 64: Pass it or Goup in Smoke?</a></li>
+                                                        <li className="relatedarticle--items"><a className="relatedarticle--cont" href="#!">CBD: The Benefits, Effects, and Future</a></li>
+                                                        <li className="relatedarticle--items"><a className="relatedarticle--cont" href="#!">Can CBD Help our Fuzzy Friends?</a></li>
+                                                        <li className="relatedarticle--items"><a className="relatedarticle--cont" href="#!">Is the FDA Monkeying Around?</a></li>
+                                                        <li className="relatedarticle--items"><a className="relatedarticle--cont" href="#!">High Hopes for the U.S.A</a></li>
+                                                        <li className="relatedarticle--items"><a className="relatedarticle--cont" href="#!">Cannabis and PTSD</a></li>
                                                     </ul>
                                                 </div>
                                             </div>

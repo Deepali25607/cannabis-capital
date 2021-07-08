@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import axios from "axios";
-import data from '@iconify-icons/mdi/play-circle-outline';
+// import data from '@iconify-icons/mdi/play-circle-outline';
 
 function Sponsors(){
     const [video, setVideo] = useState([])

@@ -72,7 +72,7 @@ function CannabiscapitalVideo(){
                                                     <div class="news_listBottom">
                                                         <ul class="newsList">
                                                             <li class="newsListItem">
-                                                                <a href="#" class="newsListItemLink">
+                                                                <a href="#!" class="newsListItemLink">
                                                                     <div class="intThumbnail">
                                                                         <img src={post2} alt="" />
                                                                     </div>
@@ -84,7 +84,7 @@ function CannabiscapitalVideo(){
                                                                 </a>
                                                             </li>
                                                             <li class="newsListItem">
-                                                                <a href="#" class="newsListItemLink">
+                                                                <a href="#!" class="newsListItemLink">
                                                                     <div class="intThumbnail">
                                                                         <img src={post2} alt="" />
                                                                     </div>
@@ -96,7 +96,7 @@ function CannabiscapitalVideo(){
                                                                 </a>
                                                             </li>
                                                             <li class="newsListItem">
-                                                                <a href="#" class="newsListItemLink">
+                                                                <a href="#!" class="newsListItemLink">
                                                                     <div class="intThumbnail">
                                                                         <img src={post2} alt="" />
                                                                     </div>
@@ -108,7 +108,7 @@ function CannabiscapitalVideo(){
                                                                 </a>
                                                             </li>
                                                             <li class="newsListItem">
-                                                                <a href="#" class="newsListItemLink">
+                                                                <a href="#!" class="newsListItemLink">
                                                                     <div class="intThumbnail">
                                                                         <img src={post2} alt="" />
                                                                     </div>

@@ -2,35 +2,24 @@ import React, { useState, useEffect } from 'react'
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
 import banner from './images/logo-bannerSection.png';
-// import sponsor1 from './images/sponsor1.jpg';
 import sponsor2 from './images/sponsor2.jpg';
-// import sponsor3 from './images/sponsor3.jpg';
-function Video() {
-    const [video, setVideo] = useState([])
-    // const [videoData, setVideoData] = useState([])
+
+function EntertainmentVideo() {
+    const [video, setVideo] = ("")
     useEffect(() => {
-        fetch("https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails%2Csnippet&maxResults=25&playlistId=PLL3jD_qUrZ8NDZdqA5WIjNbMlm2EuV9R0&key=AIzaSyA6Ah_CjzrdnEu1-WDfHx1JlQJQoJnyFoA")
+        fetch("https://dev.cannabiscapitol.com/api/featured-video")
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-
-                const result = data.items.map(item => {
-
-                    return { title: item.snippet.title, vid: item.contentDetails.videoId, thumbnails: item.snippet.thumbnails.default.url }
-                    //  console.log(item.snippet.title,item.contentDetails.videoId)
+                const videostore = data.data.video.file_path;
+                console.log("video",videostore)
+              const hello=  videostore.map(item => {
+                    return { videopath: item.file_path }
                 })
-
-                setVideo(result)
-                uid(result.vid)
-                utit(result.title)
-                uthumbnails(result.thumbnails)
-                console.log(result)
+                setVideo(hello)
             })
+
     }, [])
-    const [ uid] = useState("")
-    const [ utit] = useState("")
-    const [ uthumbnails] = useState("")
-    var videoclip = video.slice(0,1)
+
     return (
         <div>
             <CannabiscapitalHeader />
@@ -41,7 +30,7 @@ function Video() {
                     </div>
                 </div>
             </section>
-           
+
             <section className="wrap_con">
                 <div className="container">
                     <div className="row">
@@ -52,32 +41,32 @@ function Video() {
                                         <div className="newscard list-item firstNews">
                                             <div className="newscard--wrap ">
                                                 <div className="newscard--videoPlay">
-                                                    {videoclip.map(item=>
-                                                    <iframe src="https://www.youtube.com/embed/m7s8ZqJ8_ss?autoplay=1" width="100%" height="450px" frameBorder="0"
-                                                    allowFullScreen="true" title="video"></iframe>
-                                                     ) }
+
+                                                    <iframe src={video} width="100%" height="450px" frameBorder="0"
+                                                        allowFullScreen="true" title="video"></iframe>
+
                                                 </div>
                                                 <div className="newscard--postCont">
                                                     <h4 className="newscard--postCategory">PUFF PIECE</h4>
                                                     <h2 className="newscard--postTitle">Cypress Hill Gets a Hollywood Star</h2>
                                                     <span className="newscard--postDate"><i>February 20, 2021 by John
-                                                    Smith</i></span>
+                                                        Smith</i></span>
                                                     <p className="newscard--postPara">Cypres Hill makes History! And as cannabis
-                                                    advocates since
-                                                    the 90s, its awesome to see legends getting their place on the Hollywood
-                                                    Walk Of
-                                                    Fame. Bump some Cypress Hill today in love for the first of many for the
-                                                    Latino Hip
-                                                Hop group!</p>
+                                                        advocates since
+                                                        the 90s, its awesome to see legends getting their place on the Hollywood
+                                                        Walk Of
+                                                        Fame. Bump some Cypress Hill today in love for the first of many for the
+                                                        Latino Hip
+                                                        Hop group!</p>
                                                 </div>
-                                                {/* <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a> */}
+
                                             </div>
                                         </div>
 
-                                     
+
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
 
@@ -85,34 +74,30 @@ function Video() {
                             <div className="rightWrap">
                                 <div className="rightWrapinIn">
                                     <div className="sidebarMain searchSidebar">
-                                                                           </div>
+                                    </div>
 
                                     <div className="sidebarMain">
                                         <h3 className="sidebarTitle sec_title">Related Video</h3>
                                         <div className="rightadv">
-                                            {videoclip.map(item=>
-                                            <img src={item.thumbnails} alt="" />
-                                            
-                                            )}
+
+                                            <img src={banner} alt="" />
+
+
                                             <div className="newsGuest">
-                                                {videoclip.map(item=>
-                                                <p>{item.title}</p>
-                                                )}
-                                                </div>
+
+                                                <p>Hello</p>
+
+                                            </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div className="sidebarMain">
                                         <h3 className="sidebarTitle sec_title">Sponsors</h3>
-                                        {/* <div className="rightadv">
-                                            <img src={sponsor1} alt="" />
-                                        </div> */}
+
                                         <div className="rightadv">
                                             <img src={sponsor2} alt="" />
                                         </div>
-                                        {/* <div className="rightadv">
-                                            <img src={sponsor3} alt="" />
-                                        </div> */}
+
                                     </div>
                                 </div>
                             </div>
@@ -121,9 +106,9 @@ function Video() {
                 </div>
             </section>
             <div>
-            </div>           
-                    <CannabiscapitalFooter />
-                </div>
+            </div>
+            <CannabiscapitalFooter />
+        </div>
     )
 }
-export default Video;
+export default EntertainmentVideo;

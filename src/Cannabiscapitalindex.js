@@ -6,10 +6,7 @@ import banner from './images/banner.png';
 // import post2 from './images/post2.png';
 // import post3 from './images/post3.jpg';
 // import instagram from './images/instagram.jpg';
-// import sponsor1 from './images/sponsor1.jpg';
-// import sponsor2 from './images/sponsor2.jpg';
-// import sponsor3 from './images/sponsor3.jpg';
-// import Sighup from './Signup';
+// import Video from './Video';
 import { Icon } from '@iconify/react';
 import playCircleOutline from '@iconify-icons/mdi/play-circle-outline';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
@@ -30,7 +27,7 @@ function Cannabiscapitalindex() {
 
 
             .then(res => {
-                console.log(res);
+                console.log("Respnse", res);
                 const store = res.data.data;
                 console.log("store", store);
 
@@ -38,7 +35,7 @@ function Cannabiscapitalindex() {
                     let ContentSlice = item.content.slice(3, 30);
                     ContentSlice = ContentSlice.substring(0, ContentSlice.length - 4);
                     let dateSlice = item.created_at.slice(0, 10);
-                    return { image: item?.image, title: item.title, date: dateSlice, content: ContentSlice, category: item?.category?.title}
+                    return { image: item?.image, title: item.title, date: dateSlice, content: ContentSlice, category: item?.category?.title }
                 })
                 console.log("Welcome Posts", result);
                 setNewslist(result);
@@ -55,6 +52,14 @@ function Cannabiscapitalindex() {
     console.log("Slice", currentPosts);
     const paginate = pageNumber => setCurrentPage(pageNumber);
     console.log("Paginate", paginate)
+
+
+    // const handlevideourl=()=>{
+    //     // alert("Hello");
+        
+    //     return( <a href="Cannabiscapitalintertainment"></a>)
+        
+    // }
     return (
         <div>
 
@@ -100,50 +105,53 @@ function Cannabiscapitalindex() {
                                             </div>
                                         </div>
                                         {currentPosts.map((item) =>
-                                        item.category==="ENTERTAINMENT" ?
-                                        
-                                            <div className="newscard list-item">
-                                                <div className="newscard--wrap">
-                                                
-                                                    <div className="newscard--videoPlay">
-                                                  
-                                                    <img src={item.image} className="newscard--postThum" alt="post2" />
-                                                    <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" />
-                                                   </div>
-                                                    <div classNameName="newscard--postCont">
-                                                        <h4 className="newscard--postCategory">{item.category}</h4>
-                                                        <h2 className="newscard--postTitle">{item.title}</h2>
-                                                        <span className="newscard--postDate"><i>{item.date}</i></span>
-                                                        <p className="newscard--postPara">{item.content}</p>
-                                                    </div>
-                                                    <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
-                                                     </div>
-                                                     </div>
-                                                     
-                                                       :
-                                                       <div className="newscard list-item">
-                                                <div className="newscard--wrap">
-                                                
-                                                    <div className="newscard--videoPlay">
-                                                       <img src={item.image} className="newscard--postThum" alt="post2" /> 
+                                            item.category === "ENTERTAINMENT" ?
+
+                                                <div className="newscard list-item">
+                                                    <div className="newscard--wrap">
+
+                                                        <div className="newscard--videoPlay">
+
+                                                            <img src={item.image} className="newscard--postThum" alt="post2" />
+                                                           
+                                                        </div>
+                                                        <div classNameName="newscard--postCont">
+                                                            <h4 className="newscard--postCategory">{item.category}</h4>
+                                                            <h2 className="newscard--postTitle">{item.title}</h2>
+                                                            <span className="newscard--postDate"><i>{item.date}</i></span>
+                                                            <p className="newscard--postPara">{item.content}</p>
+                                                        </div>
+                                                        <a href="CannabiscapitalNews" className="newscard--linkDetails">Read More</a>
                                                         
                                                     </div>
-                                        
-                                                    <div classNameName="newscard--postCont">
-                                                        <h4 className="newscard--postCategory">{item.category}</h4>
-                                                        <h2 className="newscard--postTitle">{item.title}</h2>
-                                                        <span className="newscard--postDate"><i>{item.date}</i></span>
-                                                        <p className="newscard--postPara">{item.content}</p>
-                                                    </div>
-                                                    <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">Read More</a>
-                                        
                                                 </div>
-                                            </div>
-                                        
-    )}
+
+                                                :
+                                                <div className="newscard list-item">
+                                                    <div className="newscard--wrap">
+
+                                                        <div className="newscard--videoPlay">
+                                                           <a href="EntertainmentVideo">
+                                                            <img src={item.image} className="newscard--postThum" alt="post2" />
+                                                            <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" />
+                                                            </a>
+                                                        </div>
+
+                                                        <div classNameName="newscard--postCont">
+                                                            <h4 className="newscard--postCategory">{item.category}</h4>
+                                                            <h2 className="newscard--postTitle">{item.title}</h2>
+                                                            <span className="newscard--postDate"><i>{item.date}</i></span>
+                                                            <p className="newscard--postPara">{item.content}</p>
+                                                        </div>
+                                                        
+                                                        <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
+                                                    </div>
+                                                </div>
+
+                                        )}
                                     </div>
                                 </div>
-                                                        
+
                                 {/* <Posts newslist={currentPosts} /> */}
                                 <Pagination
                                     postsPerPage={postsPerPage}

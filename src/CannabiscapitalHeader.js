@@ -33,7 +33,7 @@ function CannabiscapitalHeader (){
                                         <a className="nav-link" href="Cannabiscapitalcompound">Creative Compound</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link" href="" data-toggle="modal" data-target="#loginForm">Login</a>
+                                        <a className="nav-link" href="#!" data-toggle="modal" data-target="#loginForm">Login</a>
                                     </li>
                                     <li className="nav-item sign_upNav">
                                         <a className="nav-link" href="signup" data-toggle="modal" data-target="#signupForm">Sign Up</a>

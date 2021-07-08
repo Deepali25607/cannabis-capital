@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import facebook from './images/facebook.png';
 import instagram1 from './images/instagram.png';
@@ -54,9 +54,9 @@ function CannabiscapitalFooter() {
                                 <div className="footercolWraper">
                                     <h3 className="sec_title">social</h3>
                                     <div className="footer_social">
-                                        <a href="#"><img src={facebook} alt="" /></a>
-                                        <a href=""><img src={instagram1} alt="" /></a>
-                                        <a href="#"><img src={youtube} alt="" /></a>
+                                        <a href="#!"><img src={facebook} alt="" /></a>
+                                        <a href="#!"><img src={instagram1} alt="" /></a>
+                                        <a href="#!"><img src={youtube} alt="" /></a>
                                     </div>
 
                                 </div>

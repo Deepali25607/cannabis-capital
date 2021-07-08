@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import creativecompound from './images/creative-compound.jpg';
 import compound1 from './images/compound-1.jpg';
 import compound2 from './images/compound-2.jpg';

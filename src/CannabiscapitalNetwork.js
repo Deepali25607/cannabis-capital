@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
@@ -74,7 +74,7 @@ import ccmarketing from './images/cc-marketing.png';
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="cc_network_col text-center">
-                                        <img src={ccevents} alt=""/>
+                                        <img src={ccevents} alt="ccevnts"/>
                                         <h3 className="sec_title text-center">EVENTS</h3>
                                         <p className="text-center">In the calander you’ll find in-studio productions and
                                             hosted
