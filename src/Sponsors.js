@@ -9,13 +9,13 @@ function Sponsors(){
     .get('https://dev.cannabiscapitol.com/api/get_advertisement?limit=3')
     .then(video =>{ 
 const store=video.data.data.advertisements
-console.log(store)
+// console.log(store)
         const resultplay = store.map((itemplay) => {    
             return{image:itemplay.image}
             
     //   console.log("Hello result",itemplay.image);
     })
-    console.log("Welcome",resultplay)
+//     console.log("Welcome",resultplay)
     setVideo(resultplay)
 })
     .catch(error =>{
@@ -28,7 +28,7 @@ useEffect(() => {
     
 
 }, [])
-console.log("Hello",video)
+// console.log("Hello",video)
 // let stores=data.data;
 // console.log(stores);
     return(

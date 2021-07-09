@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import banner from './images/intertainment.png';
 import axios from 'axios';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
 import CannabiscapitalHeader from './CannabiscapitalHeader';
 import CannabiscapitalFooter from './CannabiscapitalFooter';
 import {TwitchPlayer}  from 'react-twitch-embed';

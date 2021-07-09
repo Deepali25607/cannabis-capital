@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Pagination from './Pagination';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import banner from './images/banner.png';
+import ReactPlayer from 'react-player';
 // import post1 from './images/post1.jpg';
 // import post2 from './images/post2.png';
 // import post3 from './images/post3.jpg';
@@ -16,11 +17,14 @@ import axios from "axios";
 // import InstagramEmbed from 'react-instagram-embed';
 import InstagramPost from './InstagramPost';
 import Sponsors from './Sponsors';
-// import Posts from './Posts';
+import NewsDetails from './NewsDetails';
 function Cannabiscapitalindex() {
     const [newslist, setNewslist] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(6);
+    const [video, setVideo] =useState ("")
+    const[content,setContent]=useState("")
+    const [date, setDate] =useState ("")
     useEffect(() => {
 
         axios.get("https://dev.cannabiscapitol.com/api/get_post_list?slug=well-done")
@@ -29,7 +33,7 @@ function Cannabiscapitalindex() {
             .then(res => {
                 console.log("Respnse", res);
                 const store = res.data.data;
-                console.log("store", store);
+                // console.log("store", store);
 
                 const result = store.posts.map((item) => {
                     let ContentSlice = item.content.slice(3, 30);
@@ -37,7 +41,7 @@ function Cannabiscapitalindex() {
                     let dateSlice = item.created_at.slice(0, 10);
                     return { image: item?.image, title: item.title, date: dateSlice, content: ContentSlice, category: item?.category?.title }
                 })
-                console.log("Welcome Posts", result);
+                // console.log("Welcome Posts", result);
                 setNewslist(result);
             })
             .catch(err => {
@@ -49,17 +53,23 @@ function Cannabiscapitalindex() {
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPosts = newslist.slice(indexOfFirstPost, indexOfLastPost);
-    console.log("Slice", currentPosts);
+    // console.log("Slice", currentPosts);
     const paginate = pageNumber => setCurrentPage(pageNumber);
-    console.log("Paginate", paginate)
+    // console.log("Paginate", paginate)
 
-
-    // const handlevideourl=()=>{
-    //     // alert("Hello");
-        
-    //     return( <a href="Cannabiscapitalintertainment"></a>)
-        
-    // }
+    useEffect(() => {
+        fetch("https://dev.cannabiscapitol.com/api/featured-video")
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.data.video)
+                setVideo(data.data.video)
+                let ContentSlice = data.data.video.content.slice(3, 30);
+                    ContentSlice = ContentSlice.substring(0, ContentSlice.length - 4);
+                    setContent(ContentSlice)
+                    let dateSlice = data.data.video.updated_at.slice(0, 10);
+                    setDate(dateSlice)
+            })
+        },[])
     return (
         <div>
 
@@ -82,24 +92,16 @@ function Cannabiscapitalindex() {
                                             <div className="newscard--wrap ">
                                                 <div className="newscard--videoPlay">
 
-                                                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" width="100%" height="450px" frameBorder="0"
-                                                        allowFullScreen="true" title="video"></iframe>
+                                                    <ReactPlayer url={video.file_path} width="100%" height="450px" controls></ReactPlayer>
                                                     {/* <img src={post1} className="newscard--postThum" alt="" /> */}
                                                     {/* <Icon icon={playCircleOutline} color="white" className="newscard--playIcon" /> */}
 
                                                 </div>
                                                 <div className="newscard--postCont">
-                                                    <h4 className="newscard--postCategory">PUFF PIECE</h4>
-                                                    <h2 className="newscard--postTitle">Cypress Hill Gets a Hollywood Star</h2>
-                                                    <span className="newscard--postDate"><i>February 20, 2021 by John
-                                                        Smith</i></span>
-                                                    <p className="newscard--postPara">Cypres Hill makes History! And as cannabis
-                                                        advocates since
-                                                        the 90s, its awesome to see legends getting their place on the Hollywood
-                                                        Walk Of
-                                                        Fame. Bump some Cypress Hill today in love for the first of many for the
-                                                        Latino Hip
-                                                        Hop group!</p>
+                                                    <h4 className="newscard--postCategory">{video.category_name}</h4>
+                                                    <h2 className="newscard--postTitle">{video.title}</h2>
+                                                    <span className="newscard--postDate"><i>{date}</i></span>
+                                                    <p className="newscard--postPara">{content}</p>
                                                 </div>
                                                 <a href="Cannabiscapitalintertainment" className="newscard--linkDetails">More Video</a>
                                             </div>
@@ -111,9 +113,9 @@ function Cannabiscapitalindex() {
                                                     <div className="newscard--wrap">
 
                                                         <div className="newscard--videoPlay">
-
+                                                        <a href="NewsDetails">
                                                             <img src={item.image} className="newscard--postThum" alt="post2" />
-                                                           
+                                                           </a>
                                                         </div>
                                                         <div classNameName="newscard--postCont">
                                                             <h4 className="newscard--postCategory">{item.category}</h4>

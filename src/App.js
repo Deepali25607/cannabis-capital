@@ -9,6 +9,7 @@ import CannabiscapitalVideo from './CannabiscapitalVideo';
 import EntertainmentVideo from './EntertainmentVideo';
 import Video from './Video';
 import './style/css/style.css';
+import NewsDetails from './NewsDetails';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Cannabiscapitalindex />
+          </Route>
+          <Route exact path="/NewsDetails">
+            <NewsDetails />
           </Route>
           <Route exact path="/EntertainmentVideo">
             <EntertainmentVideo />
